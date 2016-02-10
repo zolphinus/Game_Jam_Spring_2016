@@ -1,0 +1,5 @@
+Please do not include any practice code in the repository
+
+PyGames for Python 3
+
+https://www.youtube.com/watch?v=K5F-aGDIYaM

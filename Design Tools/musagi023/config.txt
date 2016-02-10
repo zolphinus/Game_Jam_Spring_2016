@@ -1,0 +1,17 @@
+window: 840 0 824 971 0
+log: 0
+latency: 100
+mididevice: 0
+doublesize: 0
+tooltips: 1
+scrollfollow: 1
+speaker: 0.50
+metronome: 0.50
+keyboard octave: 4
+midi octave: 3
+
+
+
+
+
+
