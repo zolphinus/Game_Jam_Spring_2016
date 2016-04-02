@@ -14,6 +14,7 @@ using TwistedLogik.Ultraviolet.Platform;
 using Box2DX.Dynamics;
 using Box2DX.Collision;
 using Box2DX.Common;
+using ExtensionMethods;
 
 namespace GameJamSpring2016
 {
@@ -119,9 +120,18 @@ namespace GameJamSpring2016
             this.content = ContentManager.Create("Content");
 
             LoadLocalizationDatabases();
-            LoadInputBindings();
+            //LoadInputBindings();
             LoadContentManifests();
             LoadCursors();
+
+            //player object initialization
+            this.sprite = this.content.Load<Sprite>(GlobalSpriteID.Green_Corn);
+            this.playerObject = new GameObject();
+            this.playerObject.position = new Vec2(32, 32).ToScreenVector();
+            this.playerObject.sprite = this.sprite;
+            this.playerObject.animationIndex = 0;
+            this.playerObject.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
+            this.playerObject.SetupBodyFromSprite(physicsWorld);
 
             this.spriteBatch = SpriteBatch.Create();
             this.spriteFont = this.content.Load<SpriteFont>(GlobalFontID.SegoeUI);
@@ -180,6 +190,7 @@ namespace GameJamSpring2016
             uvContent.Manifests.Load(contentManifestFiles);
 
             uvContent.Manifests["Global"]["Fonts"].PopulateAssetLibrary(typeof(GlobalFontID));
+            uvContent.Manifests["Global"]["Sprites"].PopulateAssetLibrary(typeof(GlobalSpriteID));
         }
 
         /// <summary>
@@ -198,16 +209,26 @@ namespace GameJamSpring2016
         /// <param name="time">Time elapsed since the last call to Update.</param>
         protected override void OnUpdating(UltravioletTime time)
         {
+            if (Ultraviolet.GetInput().GetActions().MoveLeft.IsPressed() || Ultraviolet.GetInput().GetActions().MoveLeft.IsDown())
+            {
+                MoveGameObject(new Vector2(-5, 0), playerObject);
+            }
+            if (Ultraviolet.GetInput().GetActions().MoveRight.IsPressed() || Ultraviolet.GetInput().GetActions().MoveRight.IsDown())
+            {
+                MoveGameObject(new Vector2(+5, 0), playerObject);
+            }
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
                 Exit();
             }
 
-            physicsWorld.Step(1F / 60F, 10, 10);
+            physicsWorld.Step(1F / 60F, 10, 10); 
+
+            playerObject.position = playerObject.body2D.GetPosition().ToScreenVector();
 
             base.OnUpdating(time);
         }
-
+        
         /// <summary>
         /// Called when the scene is being rendered.
         /// </summary>
@@ -215,6 +236,9 @@ namespace GameJamSpring2016
         protected override void OnDrawing(UltravioletTime time)
         {
             spriteBatch.Begin();
+
+            //player sprite draw
+            spriteBatch.DrawSprite(this.playerObject.animations[this.playerObject.animationIndex], this.playerObject.position);    
 
             textFormatter.Reset();
             textFormatter.AddArgument(Ultraviolet.GetGraphics().FrameRate);
@@ -259,6 +283,11 @@ namespace GameJamSpring2016
             base.Dispose(disposing);
         }
 
+        private void MoveGameObject(Vector2 direction, GameObject gameObj)
+        {
+            gameObj.position += direction;
+        }
+
         // The global content manager.  Manages any content that should remain loaded for the duration of the game's execution.
         private ContentManager content;
 
@@ -278,5 +307,9 @@ namespace GameJamSpring2016
 
         private GameObject physicsTestObject;
         private GameObject groundTestObject;
+
+        //Player Object
+        private GameObject playerObject;
+        private Sprite sprite;
     }
 }

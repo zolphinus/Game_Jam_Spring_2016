@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Sprite>
+  <Animations>
+    <Animation Name="Green_Corn">
+      <Frames Atlas="Textures/Green_Corn.xml" Duration="50" OriginX="50" OriginY="50">
+        <Frame AtlasCell="Green_Corn.png" />
+      </Frames>
+    </Animation>
+  </Animations>
+</Sprite>

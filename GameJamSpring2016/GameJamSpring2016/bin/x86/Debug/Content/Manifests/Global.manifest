@@ -3,4 +3,7 @@
   <ContentGroup Name="Fonts" Directory="Fonts" Type="TwistedLogik.Ultraviolet.Graphics.Graphics2D.SpriteFont">
     <Asset Name="SegoeUI">SegoeUI</Asset>
   </ContentGroup>
+  <ContentGroup Name="Sprites" Directory="Sprites" Type="TwistedLogik.Ultraviolet.Graphics.Graphics2D.Sprite">
+    <Asset Name="Green_Corn">Green_Corn.sprite</Asset>
+  </ContentGroup>
 </ContentManifest>
