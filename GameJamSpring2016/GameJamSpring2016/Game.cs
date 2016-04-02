@@ -14,6 +14,9 @@ using TwistedLogik.Ultraviolet.Platform;
 using Box2DX.Dynamics;
 using Box2DX.Collision;
 using Box2DX.Common;
+using TwistedLogik.Ultraviolet.Input;
+using ExtensionMethods;
+using TwistedLogik.Ultraviolet.Graphics;
 
 namespace GameJamSpring2016
 {
@@ -66,6 +69,19 @@ namespace GameJamSpring2016
             };
 #endif
 
+            return new OpenGLUltravioletContext(this, configuration);
+        }
+
+        /// <summary>
+        /// Called after the application has been initialized.
+        /// </summary>
+        protected override void OnInitialized()
+        {
+            SetFileSourceFromManifestIfExists("UltravioletGame.Content.uvarc");
+
+            MouseInputBinding mib = new MouseInputBinding(this.Ultraviolet, MouseButton.Left);
+            mouse = mib.Mouse;
+
             //Setup Box2D world
             worldAABB = new AABB();
             worldAABB.Center.Set(0F, 0F);
@@ -90,23 +106,13 @@ namespace GameJamSpring2016
             BodyDef groundDef = new BodyDef();
             groundDef.Position.Set(0F, 3F);
 
-            groundTestObject = new GameObject(); 
+            groundTestObject = new GameObject();
             groundTestObject.body2D = physicsWorld.CreateBody(groundDef);
 
             PolygonDef groundShapeDef = new PolygonDef();
 
             groundShapeDef.SetAsBox(1F, 1F);
             groundTestObject.body2D.CreateFixture(groundShapeDef);
-
-            return new OpenGLUltravioletContext(this, configuration);
-        }
-
-        /// <summary>
-        /// Called after the application has been initialized.
-        /// </summary>
-        protected override void OnInitialized()
-        {
-            SetFileSourceFromManifestIfExists("UltravioletGame.Content.uvarc");
 
             base.OnInitialized();
         }
@@ -119,7 +125,7 @@ namespace GameJamSpring2016
             this.content = ContentManager.Create("Content");
 
             LoadLocalizationDatabases();
-            LoadInputBindings();
+            //LoadInputBindings();
             LoadContentManifests();
             LoadCursors();
 
@@ -203,6 +209,12 @@ namespace GameJamSpring2016
                 Exit();
             }
 
+            if(Ultraviolet.GetInput().GetActions().Jump.IsPressed())
+            {
+                physicsTestObject.body2D.ApplyImpulse(new Vec2(0F, -20F), new Vec2(0F, 0F));
+                
+            }
+
             physicsWorld.Step(1F / 60F, 10, 10);
 
             base.OnUpdating(time);
@@ -236,6 +248,14 @@ namespace GameJamSpring2016
             base.OnDrawing(time);
         }
 
+        protected override void OnWindowDrawing(UltravioletTime time, IUltravioletWindow window)
+        {
+            windowHeight = window.ClientSize.Height;
+            windowWidth = window.ClientSize.Width;
+
+            base.OnWindowDrawing(time, window);
+        }
+
         /// <summary>
         /// Called when the application is being shut down.
         /// </summary>
@@ -262,6 +282,8 @@ namespace GameJamSpring2016
         // The global content manager.  Manages any content that should remain loaded for the duration of the game's execution.
         private ContentManager content;
 
+        private MouseDevice mouse;
+
         // Game resources.
         private CursorCollection cursors;
         private SpriteFont spriteFont;
@@ -272,6 +294,33 @@ namespace GameJamSpring2016
 
         //Physics variables
         public static readonly float pixelsToMeters = 128;
+        private static int _windowHeight;
+        public static int windowHeight
+        {
+            get
+            {
+                return _windowHeight;
+            }
+
+            private set
+            {
+                _windowHeight = value;
+            }
+        }
+
+        private static int _windowWidth;
+        public static int windowWidth
+        {
+            get
+            {
+                return _windowWidth;
+            }
+
+            private set
+            {
+                _windowWidth = value;
+            }
+        }
 
         private World physicsWorld;
         private AABB worldAABB;

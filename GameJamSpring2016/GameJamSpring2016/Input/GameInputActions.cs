@@ -27,12 +27,19 @@ namespace GameJamSpring2016.Input
             private set;
         }
 
+        public InputAction Jump
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         /// Called when the collection is creating its actions.
         /// </summary>
         protected override void OnCreatingActions()
         {
             ExitApplication = CreateAction("EXIT_APPLICATION");
+            Jump = CreateAction("JUMP");
 
             base.OnCreatingActions();
         }
@@ -46,6 +53,7 @@ namespace GameJamSpring2016.Input
             ExitApplication.Primary = CreateKeyboardBinding(Key.AppControlBack);
 #else
             ExitApplication.Primary = CreateKeyboardBinding(Key.Escape);
+            Jump.Primary = CreateMouseBinding(MouseButton.Left);
 #endif
 
             base.OnResetting();
