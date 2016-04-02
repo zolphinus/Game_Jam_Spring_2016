@@ -13,6 +13,8 @@ using TwistedLogik.Ultraviolet.Graphics.Graphics2D;
 using TwistedLogik.Ultraviolet.Graphics.Graphics2D.Text;
 using TwistedLogik.Ultraviolet.OpenGL;
 using TwistedLogik.Ultraviolet.Platform;
+using Box2DX.Collision;
+using Box2DX.Dynamics;
 
 namespace SafeProjectName
 {
