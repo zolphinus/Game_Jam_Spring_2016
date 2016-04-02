@@ -15,8 +15,9 @@ using TwistedLogik.Ultraviolet.OpenGL;
 using TwistedLogik.Ultraviolet.Platform;
 using Box2DX.Collision;
 using Box2DX.Dynamics;
+using ExtensionMethods;
 
-namespace SafeProjectName
+namespace GameJamSpring2016
 {
     class GameObject
     {
@@ -24,6 +25,7 @@ namespace SafeProjectName
         private Sprite _sprite;
         private SpriteAnimationController[] _animations;
         private Body _body2D;
+        private int _animationIndex;
 
         public Vector2 position
         {
@@ -47,6 +49,46 @@ namespace SafeProjectName
         {
             get { return _body2D; }
             set { _body2D = value; }
+        }
+
+        public int animationIndex
+        {
+            get { return _animationIndex; }
+            set { _animationIndex = value; }
+        }
+
+        public void DrawObject(SpriteBatch batch, bool debug = false, TextRenderer rend = null, TextLayoutSettings settings = new TextLayoutSettings())
+        {
+            if(debug)
+            {
+                if (rend != null)
+                {
+                    rend.Draw(batch, "yo", body2D.GetPosition().ToScreenVector(), TwistedLogik.Ultraviolet.Color.Gold, settings);
+                }
+                else
+                {
+                    Console.WriteLine("Hey yo you didn't give me a TextRenderer");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Creates a box2D body based on the GameObject's current sprite.
+        /// </summary>
+        /// <param name="world">The physics world to create the body in.</param>
+        public void SetupBodyFromSprite(World world)
+        {
+            BodyDef bDef = new BodyDef();
+            bDef.Position = position.ToWorldVector();
+
+            body2D = world.CreateBody(bDef);
+
+            PolygonDef shapeDef = new PolygonDef();
+            shapeDef.SetAsBox((float)animations[animationIndex].Width / Game.pixelsToMeters, (float)animations[animationIndex].Height / Game.pixelsToMeters);
+            shapeDef.Density = 1F;
+
+            body2D.CreateFixture(shapeDef);
+            body2D.SetMassFromShapes();
         }
     }
 }

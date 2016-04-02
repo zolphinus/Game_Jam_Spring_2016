@@ -138,6 +138,7 @@
   <ItemGroup>
     <Compile Include="Assets\GlobalFontID.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Input\GameInputActions.cs" />
     <Compile Include="Input\IUltravioletInputExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,7 +188,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Fakes Include="Fakes\Box2DX.fakes" />
     <None Include="README-SDL.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

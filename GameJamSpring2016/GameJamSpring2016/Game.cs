@@ -71,7 +71,32 @@ namespace GameJamSpring2016
             worldAABB.Center.Set(0F, 0F);
             worldAABB.LowerBound.Set(-100F);
             worldAABB.UpperBound.Set(100F);
-            physicsWorld = new World(worldAABB, new Vec2(0F, -10F), true);
+            physicsWorld = new World(worldAABB, new Vec2(0F, 9.8F), true);
+
+            BodyDef physicsTestDef = new BodyDef();
+            physicsTestDef.Position.Set(0F, 0F);
+
+            physicsTestObject = new GameObject();
+            physicsTestObject.body2D = physicsWorld.CreateBody(physicsTestDef);
+
+            PolygonDef physicsTestShapeDef = new PolygonDef();
+
+            physicsTestShapeDef.SetAsBox(1F, 1F);
+            physicsTestShapeDef.Density = 1F;
+
+            physicsTestObject.body2D.CreateFixture(physicsTestShapeDef);
+            physicsTestObject.body2D.SetMassFromShapes();
+
+            BodyDef groundDef = new BodyDef();
+            groundDef.Position.Set(0F, 3F);
+
+            groundTestObject = new GameObject(); 
+            groundTestObject.body2D = physicsWorld.CreateBody(groundDef);
+
+            PolygonDef groundShapeDef = new PolygonDef();
+
+            groundShapeDef.SetAsBox(1F, 1F);
+            groundTestObject.body2D.CreateFixture(groundShapeDef);
 
             return new OpenGLUltravioletContext(this, configuration);
         }
@@ -177,6 +202,9 @@ namespace GameJamSpring2016
             {
                 Exit();
             }
+
+            physicsWorld.Step(1F / 60F, 10, 10);
+
             base.OnUpdating(time);
         }
 
@@ -199,6 +227,9 @@ namespace GameJamSpring2016
             var size = Ultraviolet.GetPlatform().Windows.GetCurrent().ClientSize;
             var settings = new TextLayoutSettings(spriteFont, size.Width, size.Height, TextFlags.AlignCenter | TextFlags.AlignMiddle);
             textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, TwistedLogik.Ultraviolet.Color.White, settings);
+
+            physicsTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
+            groundTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
 
             spriteBatch.End();
 
@@ -244,5 +275,8 @@ namespace GameJamSpring2016
 
         private World physicsWorld;
         private AABB worldAABB;
+
+        private GameObject physicsTestObject;
+        private GameObject groundTestObject;
     }
 }
