@@ -28,6 +28,30 @@ namespace GameJamSpring2016.Input
         }
 
         public InputAction Jump
+	{
+	    get;
+	    private set;
+	}
+
+        public InputAction MoveUp
+        {
+            get;
+            private set;
+        }
+
+        public InputAction MoveDown
+        {
+            get;
+            private set;
+        }
+
+        public InputAction MoveLeft
+        {
+            get;
+            private set;
+        }
+
+        public InputAction MoveRight
         {
             get;
             private set;
@@ -39,7 +63,12 @@ namespace GameJamSpring2016.Input
         protected override void OnCreatingActions()
         {
             ExitApplication = CreateAction("EXIT_APPLICATION");
+
             Jump = CreateAction("JUMP");
+            MoveUp = CreateAction("MOVE_UP");
+            MoveDown = CreateAction("MOVE_DOWN");
+            MoveLeft = CreateAction("MOVE_LEFT");
+            MoveRight = CreateAction("MOVE_RIGHT");
 
             base.OnCreatingActions();
         }
@@ -54,6 +83,14 @@ namespace GameJamSpring2016.Input
 #else
             ExitApplication.Primary = CreateKeyboardBinding(Key.Escape);
             Jump.Primary = CreateMouseBinding(MouseButton.Left);
+            MoveUp.Primary = CreateKeyboardBinding(Key.W);
+            MoveUp.Secondary = CreateKeyboardBinding(Key.Up);
+            MoveDown.Primary = CreateKeyboardBinding(Key.S);
+            MoveDown.Secondary = CreateKeyboardBinding(Key.Down);
+            MoveLeft.Primary = CreateKeyboardBinding(Key.A);
+            MoveLeft.Secondary = CreateKeyboardBinding(Key.Left);
+            MoveRight.Primary = CreateKeyboardBinding(Key.D);
+            MoveRight.Secondary = CreateKeyboardBinding(Key.Right);
 #endif
 
             base.OnResetting();
