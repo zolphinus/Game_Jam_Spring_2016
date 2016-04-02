@@ -11,6 +11,9 @@ using TwistedLogik.Ultraviolet.Graphics.Graphics2D;
 using TwistedLogik.Ultraviolet.Graphics.Graphics2D.Text;
 using TwistedLogik.Ultraviolet.OpenGL;
 using TwistedLogik.Ultraviolet.Platform;
+using Box2DX.Dynamics;
+using Box2DX.Collision;
+using Box2DX.Common;
 
 namespace GameJamSpring2016
 {
@@ -62,6 +65,14 @@ namespace GameJamSpring2016
                 System.Diagnostics.Debug.WriteLine(message);
             };
 #endif
+
+            //Setup Box2D world
+            worldAABB = new AABB();
+            worldAABB.Center.Set(0F, 0F);
+            worldAABB.LowerBound.Set(-100F);
+            worldAABB.UpperBound.Set(100F);
+            physicsWorld = new World(worldAABB, new Vec2(0F, -10F), true);
+
             return new OpenGLUltravioletContext(this, configuration);
         }
 
@@ -183,11 +194,11 @@ namespace GameJamSpring2016
             textFormatter.AddArgument(Environment.Is64BitProcess ? "64-bit" : "32-bit");
             textFormatter.Format("{0:decimals:2} FPS\nAllocated: {1:decimals:2} kb\n{2}", textBuffer);
 
-            spriteBatch.DrawString(spriteFont, textBuffer, Vector2.One * 8f, Color.White);
+            spriteBatch.DrawString(spriteFont, textBuffer, Vector2.One * 8f, TwistedLogik.Ultraviolet.Color.White);
 
             var size = Ultraviolet.GetPlatform().Windows.GetCurrent().ClientSize;
             var settings = new TextLayoutSettings(spriteFont, size.Width, size.Height, TextFlags.AlignCenter | TextFlags.AlignMiddle);
-            textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, Color.White, settings);
+            textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, TwistedLogik.Ultraviolet.Color.White, settings);
 
             spriteBatch.End();
 
@@ -227,5 +238,11 @@ namespace GameJamSpring2016
         private TextRenderer textRenderer;
         private StringFormatter textFormatter;
         private StringBuilder textBuffer;
+
+        //Physics variables
+        public static readonly float pixelsToMeters = 128;
+
+        private World physicsWorld;
+        private AABB worldAABB;
     }
 }

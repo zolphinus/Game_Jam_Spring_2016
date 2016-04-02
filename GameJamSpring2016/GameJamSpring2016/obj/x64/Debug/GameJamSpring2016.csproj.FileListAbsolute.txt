@@ -1,0 +1,2 @@
+\\catfs\paytonc13\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x64\Debug\SafeProjectName.exe.config
+\\catfs\paytonc13\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\obj\x64\Debug\SafeProjectName.pdb
