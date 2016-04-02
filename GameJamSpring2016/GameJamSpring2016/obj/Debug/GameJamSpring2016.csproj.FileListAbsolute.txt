@@ -1,1 +1,2 @@
 \\CONOR-PC\Users\Conor\Desktop\GameJamSpring2016\GameJamSpring2016\bin\Debug\SafeProjectName.exe.config
+\\catfs\paytonc13\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\Debug\SafeProjectName.exe.config

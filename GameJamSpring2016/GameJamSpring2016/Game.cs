@@ -27,6 +27,7 @@ namespace GameJamSpring2016
     public class Game : UltravioletApplication
 #endif
     {
+        //Test comment
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
         /// </summary>
