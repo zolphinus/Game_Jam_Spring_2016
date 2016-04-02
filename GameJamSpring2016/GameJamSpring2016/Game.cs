@@ -92,16 +92,16 @@ namespace GameJamSpring2016
             BodyDef physicsTestDef = new BodyDef();
             physicsTestDef.Position.Set(0F, 0F);
 
-            physicsTestObject = new GameObject();
-            physicsTestObject.body2D = physicsWorld.CreateBody(physicsTestDef);
+            //physicsTestObject = new GameObject();
+            //physicsTestObject.body2D = physicsWorld.CreateBody(physicsTestDef);
 
             PolygonDef physicsTestShapeDef = new PolygonDef();
 
             physicsTestShapeDef.SetAsBox(1F, 1F);
             physicsTestShapeDef.Density = 1F;
 
-            physicsTestObject.body2D.CreateFixture(physicsTestShapeDef);
-            physicsTestObject.body2D.SetMassFromShapes();
+            //physicsTestObject.body2D.CreateFixture(physicsTestShapeDef);
+            //physicsTestObject.body2D.SetMassFromShapes();
 
             BodyDef groundDef = new BodyDef();
             groundDef.Position.Set(0F, 3F);
@@ -132,7 +132,7 @@ namespace GameJamSpring2016
             //player object initialization
             this.sprite = this.content.Load<Sprite>(GlobalSpriteID.Green_Corn);
             this.playerObject = new GameObject();
-            this.playerObject.position = new Vec2(32, 32).ToScreenVector();
+            this.playerObject.position = new Vector2(32, 32);
             this.playerObject.sprite = this.sprite;
             this.playerObject.animationIndex = 0;
             this.playerObject.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
@@ -216,11 +216,11 @@ namespace GameJamSpring2016
         {
             if (Ultraviolet.GetInput().GetActions().MoveLeft.IsPressed() || Ultraviolet.GetInput().GetActions().MoveLeft.IsDown())
             {
-                MoveGameObject(new Vector2(-5, 0), playerObject);
+                MoveGameObject(new Vec2(-30, 0), playerObject);
             }
             if (Ultraviolet.GetInput().GetActions().MoveRight.IsPressed() || Ultraviolet.GetInput().GetActions().MoveRight.IsDown())
             {
-                MoveGameObject(new Vector2(+5, 0), playerObject);
+                MoveGameObject(new Vec2(+30, 0), playerObject);
             }
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
@@ -229,7 +229,7 @@ namespace GameJamSpring2016
 
             if(Ultraviolet.GetInput().GetActions().Jump.IsPressed())
             {
-                physicsTestObject.body2D.ApplyImpulse(new Vec2(0F, -20F), new Vec2(0F, 0F));
+                //physicsTestObject.body2D.ApplyImpulse(new Vec2(0F, -20F), new Vec2(0F, 0F));
                 
             }
 
@@ -262,7 +262,7 @@ namespace GameJamSpring2016
             var settings = new TextLayoutSettings(spriteFont, size.Width, size.Height, TextFlags.AlignCenter | TextFlags.AlignMiddle);
             textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, TwistedLogik.Ultraviolet.Color.White, settings);
 
-            physicsTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
+            //physicsTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
             groundTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
 
             spriteBatch.End();
@@ -301,9 +301,9 @@ namespace GameJamSpring2016
             base.Dispose(disposing);
         }
 
-        private void MoveGameObject(Vector2 direction, GameObject gameObj)
+        private void MoveGameObject(Vec2 direction, GameObject gameObj)
         {
-            gameObj.position += direction;
+            gameObj.body2D.ApplyForce(direction, gameObj.position.ToWorldVector());
         }
 
         // The global content manager.  Manages any content that should remain loaded for the duration of the game's execution.
@@ -352,7 +352,7 @@ namespace GameJamSpring2016
         private World physicsWorld;
         private AABB worldAABB;
 
-        private GameObject physicsTestObject;
+        //private GameObject physicsTestObject;
         private GameObject groundTestObject;
 
         //Player Object
