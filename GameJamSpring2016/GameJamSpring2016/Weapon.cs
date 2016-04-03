@@ -11,6 +11,7 @@ namespace GameJamSpring2016
         private int _knockback;
         private float _damageCooldown;
         private int _rofInterval;
+        private IFiringPattern _pattern;
 
         public int ammoCost
         {
@@ -32,6 +33,7 @@ namespace GameJamSpring2016
             get { return _rofInterval; }
             set { _rofInterval = value; }
         }
+        public IFiringPattern pattern
         {
             get { return _pattern; }
             set { _pattern = value; }

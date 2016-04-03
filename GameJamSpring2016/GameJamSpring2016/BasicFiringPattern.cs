@@ -7,6 +7,7 @@ using TwistedLogik.Ultraviolet;
 
 namespace GameJamSpring2016
 {
+    class BasicFiringPattern : IFiringPattern
     {
         public Projectile[] ShootWeapon(Vector2 position, Vector2 direction)
         {
