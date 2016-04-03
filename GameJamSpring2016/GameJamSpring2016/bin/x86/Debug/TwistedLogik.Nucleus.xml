@@ -121,6 +121,26 @@
             </summary>
             <returns>An enumerator for the binary heap.</returns>
         </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.Count">
+            <summary>
+            Gets the number of items in the heap.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.Capacity">
+            <summary>
+            Gets the heap's current capacity.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.IsReadOnly">
+            <summary>
+            Gets a value indicating whether this a read-only collection.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.IsEmpty">
+            <summary>
+            Gets a value indicating whether the queue is empty.
+            </summary>
+        </member>
         <member name="M:TwistedLogik.Nucleus.Collections.BinaryHeap`1.GetParent(System.Int32)">
             <summary>
             Gets the parent of the specified item.
@@ -160,26 +180,6 @@
         <member name="M:TwistedLogik.Nucleus.Collections.BinaryHeap`1.EnsureSort">
             <summary>
             Ensures that the data store is sorted.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.Count">
-            <summary>
-            Gets the number of items in the heap.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.Capacity">
-            <summary>
-            Gets the heap's current capacity.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.IsReadOnly">
-            <summary>
-            Gets a value indicating whether this a read-only collection.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.BinaryHeap`1.IsEmpty">
-            <summary>
-            Gets a value indicating whether the queue is empty.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.BinaryHeap`1.Enumerator">
@@ -225,128 +225,6 @@
             </summary>
             <typeparam name="T">The type of item contained by the pool.</typeparam>
         </member>
-        <member name="T:TwistedLogik.Nucleus.Collections.Pool`1">
-            <summary>
-            Represents the base class for pools.
-            </summary>
-            <typeparam name="T">The type of item contained by the pool.</typeparam>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.Collections.IPool`1">
-            <summary>
-            Represents a pool of pre-allocated objects.
-            </summary>
-            <typeparam name="T">The type of item contained by the pool.</typeparam>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.Collections.IPool">
-            <summary>
-            Represents a pool of pre-allocated objects.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool.Retrieve">
-            <summary>
-            Retrieves an object from the pool.
-            </summary>
-            <returns>The object that was retrieved from the pool.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool.RetrieveScoped">
-            <summary>
-            Retrieves a scoped object from the pool.
-            </summary>
-            <returns>A <see cref="T:TwistedLogik.Nucleus.Collections.PooledObjectScope`1"/> that represents the lifetime of 
-            the object that was retrieved from the pool.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool.Release(System.Object)">
-            <summary>
-            Releases an object back into the pool.
-            </summary>
-            <param name="instance">The object to release.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool.ReleaseRef(System.Object@)">
-            <summary>
-            Releases an object back into the pool.
-            </summary>
-            <param name="instance">The object to release.</param>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.IPool.Count">
-            <summary>
-            Gets the number of objects in the pool that are currently in use.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.IPool.Capacity">
-            <summary>
-            Gets the total number of objects in the pool.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.Retrieve">
-            <summary>
-            Retrieves an object from the pool.
-            </summary>
-            <returns>The object that was retrieved from the pool.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.RetrieveScoped">
-            <summary>
-            Retrieves a scoped object from the pool.
-            </summary>
-            <returns>A <see cref="T:TwistedLogik.Nucleus.Collections.PooledObjectScope`1"/> that represents the lifetime of 
-            the object that was retrieved from the pool.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.Release(`0)">
-            <summary>
-            Releases an object back into the pool.
-            </summary>
-            <param name="instance">The object to release.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.ReleaseRef(`0@)">
-            <summary>
-            Releases an object back into the pool.
-            </summary>
-            <param name="instance">The object to release.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Retrieve">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#Retrieve">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.RetrieveScoped">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#RetrieveScoped">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Release(`0)">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#Release(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.ReleaseRef(`0@)">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#ReleaseRef(System.Object@)">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.CreateDefaultAllocator">
-            <summary>
-            Creates a default allocator for the pooled type.
-            </summary>
-            <returns>The allocator that was created.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing"><c>true</c> if the object is being disposed; <c>false</c> if the object is being finalized.</param>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.Pool`1.Count">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.Pool`1.Capacity">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.#ctor(System.Int32,System.Func{`0},System.Action{`0})">
             <summary>
             Initializes a new instance of the <see cref="T:TwistedLogik.Nucleus.Collections.ExpandingPool`1"/> class.
@@ -373,23 +251,6 @@
         <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.ReleaseRef(`0@)">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.Dispose(System.Boolean)">
-            <summary>
-            Disposes of all of the objects in the pool, if <typeparamref name="T"/> implements <see cref="T:System.IDisposable"/>.
-            </summary>
-            <param name="disposing"><c>true</c> if the object is being disposed; false if the object is being finalized.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.ExpandStorage">
-            <summary>
-            Expands the pool's storage capacity to a factor of the pool's current storage capacity.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.ExpandStorage(System.Int32)">
-            <summary>
-            Expands the pool's storage such that it has at least the specified capacity.
-            </summary>
-            <param name="capacity">The target capacity after expansion.</param>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Collections.ExpandingPool`1.Count">
             <inheritdoc/>
         </member>
@@ -407,6 +268,23 @@
             </summary>
             <remarks>Beyond this point, the pool will simply return newly-allocated objects instead of pooled objects. 
             Such objects should still be released back into the pool for bookkeeping purposes.</remarks>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.Dispose(System.Boolean)">
+            <summary>
+            Disposes of all of the objects in the pool, if <typeparamref name="T"/> implements <see cref="T:System.IDisposable"/>.
+            </summary>
+            <param name="disposing"><c>true</c> if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.ExpandStorage">
+            <summary>
+            Expands the pool's storage capacity to a factor of the pool's current storage capacity.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ExpandingPool`1.ExpandStorage(System.Int32)">
+            <summary>
+            Expands the pool's storage such that it has at least the specified capacity.
+            </summary>
+            <param name="capacity">The target capacity after expansion.</param>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.ExpandingPoolRegistry">
             <summary>
@@ -627,6 +505,77 @@
             Occurs when an item is removed from the collection.
             </summary>
         </member>
+        <member name="T:TwistedLogik.Nucleus.Collections.IPool">
+            <summary>
+            Represents a pool of pre-allocated objects.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool.Retrieve">
+            <summary>
+            Retrieves an object from the pool.
+            </summary>
+            <returns>The object that was retrieved from the pool.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool.RetrieveScoped">
+            <summary>
+            Retrieves a scoped object from the pool.
+            </summary>
+            <returns>A <see cref="T:TwistedLogik.Nucleus.Collections.PooledObjectScope`1"/> that represents the lifetime of 
+            the object that was retrieved from the pool.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool.Release(System.Object)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="instance">The object to release.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool.ReleaseRef(System.Object@)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="instance">The object to release.</param>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.IPool.Count">
+            <summary>
+            Gets the number of objects in the pool that are currently in use.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.IPool.Capacity">
+            <summary>
+            Gets the total number of objects in the pool.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Collections.IPool`1">
+            <summary>
+            Represents a pool of pre-allocated objects.
+            </summary>
+            <typeparam name="T">The type of item contained by the pool.</typeparam>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.Retrieve">
+            <summary>
+            Retrieves an object from the pool.
+            </summary>
+            <returns>The object that was retrieved from the pool.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.RetrieveScoped">
+            <summary>
+            Retrieves a scoped object from the pool.
+            </summary>
+            <returns>A <see cref="T:TwistedLogik.Nucleus.Collections.PooledObjectScope`1"/> that represents the lifetime of 
+            the object that was retrieved from the pool.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.Release(`0)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="instance">The object to release.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.IPool`1.ReleaseRef(`0@)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="instance">The object to release.</param>
+        </member>
         <member name="T:TwistedLogik.Nucleus.Collections.NamespaceDoc">
             <summary>
             The <see cref="N:TwistedLogik.Nucleus.Collections"/> namespace contains Nucleus' custom collection types, which either
@@ -740,27 +689,27 @@
             <param name="value">The value of the item that was retrieved, if an item was successfully retrieved.</param>
             <returns><c>true</c> if an item with the specified key was retrieved; otherwise, <c>false</c>.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey@TValue}}#CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey,TValue}}#CopyTo(System.Collections.Generic.KeyValuePair{`0,`1}[],System.Int32)">
             <summary>
             Copies the entire collection to the specified array, starting at the specified array index.
             </summary>
             <param name="array">The array into which to copy the collection's elements.</param>
             <param name="arrayIndex">The index within the array at which to begin copying elements.</param>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey@TValue}}#Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey,TValue}}#Add(System.Collections.Generic.KeyValuePair{`0,`1})">
             <summary>
             Adds an item to the collection.
             </summary>
             <param name="item">The item to add to the collection.</param>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey@TValue}}#Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey,TValue}}#Remove(System.Collections.Generic.KeyValuePair{`0,`1})">
             <summary>
             Removes the specified item from the collection.
             </summary>
             <param name="item">The item to remove from the collection.</param>
             <returns><c>true</c> if the item was removed from the collection; otherwise, <c>false</c>.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey@TValue}}#Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey,TValue}}#Contains(System.Collections.Generic.KeyValuePair{`0,`1})">
             <summary>
             Gets a value indicating whether the collection contains the specified item.
             </summary>
@@ -779,30 +728,11 @@
             </summary>
             <returns>An enumerator for the collection.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey@TValue}}#GetEnumerator">
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{TKey,TValue}}#GetEnumerator">
             <summary>
             Gets an enumerator for the collection.
             </summary>
             <returns>An enumerator for the collection.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionReset">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionReset"/> event.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionItemAdded(`0,`1)">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionItemAdded"/> event.
-            </summary>
-            <param name="key">The key of the item that was added to the list.</param>
-            <param name="value">The item that was added to the list.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionItemRemoved(`0,`1)">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionItemRemoved"/> event.
-            </summary>
-            <param name="key">The key of the item that was removed from the list.</param>
-            <param name="value">The item that was added to the list.</param>
         </member>
         <member name="P:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.Item(`0)">
             <summary>
@@ -834,7 +764,7 @@
             contains value types.
             </summary>
         </member>
-        <member name="P:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey@TValue}}#IsReadOnly">
+        <member name="P:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.System#Collections#Generic#ICollection{System#Collections#Generic#KeyValuePair{TKey,TValue}}#IsReadOnly">
             <summary>
             Gets a value indicating whether the collection is read-only.
             </summary>
@@ -856,6 +786,25 @@
         </member>
         <member name="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionItemRemoved">
             <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionReset">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionReset"/> event.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionItemAdded(`0,`1)">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionItemAdded"/> event.
+            </summary>
+            <param name="key">The key of the item that was added to the list.</param>
+            <param name="value">The item that was added to the list.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.OnCollectionItemRemoved(`0,`1)">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableDictionary`2.CollectionItemRemoved"/> event.
+            </summary>
+            <param name="key">The key of the item that was removed from the list.</param>
+            <param name="value">The item that was added to the list.</param>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.ObservableList`1">
             <summary>
@@ -995,25 +944,6 @@
             </summary>
             <returns>An enumerator for the collection.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionReset">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionReset"/> event.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionItemAdded(System.Int32,`0)">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionItemAdded"/> event.
-            </summary>
-            <param name="index">The index at which the item was added to the list.</param>
-            <param name="value">The item that was added to the list.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionItemRemoved(System.Int32,`0)">
-            <summary>
-            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionItemRemoved"/> event.
-            </summary>
-            <param name="index">The index at which the item was removed from the list.</param>
-            <param name="value">The item that was added to the list.</param>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Collections.ObservableList`1.Item(System.Int32)">
             <summary>
             Gets or sets the item at the specified index within the list.
@@ -1061,6 +991,76 @@
         </member>
         <member name="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionItemRemoved">
             <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionReset">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionReset"/> event.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionItemAdded(System.Int32,`0)">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionItemAdded"/> event.
+            </summary>
+            <param name="index">The index at which the item was added to the list.</param>
+            <param name="value">The item that was added to the list.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.ObservableList`1.OnCollectionItemRemoved(System.Int32,`0)">
+            <summary>
+            Raises the <see cref="E:TwistedLogik.Nucleus.Collections.ObservableList`1.CollectionItemRemoved"/> event.
+            </summary>
+            <param name="index">The index at which the item was removed from the list.</param>
+            <param name="value">The item that was added to the list.</param>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Collections.Pool`1">
+            <summary>
+            Represents the base class for pools.
+            </summary>
+            <typeparam name="T">The type of item contained by the pool.</typeparam>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Retrieve">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#Retrieve">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.RetrieveScoped">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#RetrieveScoped">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Release(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#Release(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.ReleaseRef(`0@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.TwistedLogik#Nucleus#Collections#IPool#ReleaseRef(System.Object@)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.Pool`1.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Collections.Pool`1.Capacity">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.CreateDefaultAllocator">
+            <summary>
+            Creates a default allocator for the pooled type.
+            </summary>
+            <returns>The allocator that was created.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Pool`1.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing"><c>true</c> if the object is being disposed; <c>false</c> if the object is being finalized.</param>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.PooledLinkedList`1">
             <summary>
@@ -1177,18 +1177,6 @@
             </summary>
             <returns>An enumerator for the list.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.PooledLinkedList`1.RetrieveNode">
-            <summary>
-            Retrieves a node from the list's pool of nodes.
-            </summary>
-            <returns>The node that was retrieved.</returns>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.PooledLinkedList`1.ReleaseNode(System.Collections.Generic.LinkedListNode{`0})">
-            <summary>
-            Releases a node back into the list's pool of nodes.
-            </summary>
-            <param name="node">The node to release.</param>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Collections.PooledLinkedList`1.Count">
             <summary>
             Gets the number of items in the list.
@@ -1203,6 +1191,18 @@
             <summary>
             Gets the last node of the linked list.
             </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.PooledLinkedList`1.RetrieveNode">
+            <summary>
+            Retrieves a node from the list's pool of nodes.
+            </summary>
+            <returns>The node that was retrieved.</returns>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.PooledLinkedList`1.ReleaseNode(System.Collections.Generic.LinkedListNode{`0})">
+            <summary>
+            Releases a node back into the list's pool of nodes.
+            </summary>
+            <param name="node">The node to release.</param>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.PooledObjectScope`1">
             <summary>
@@ -1233,6 +1233,35 @@
             Represents a priority queue.
             </summary>
             <typeparam name="T">The type of item contained by the queue.</typeparam>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem">
+            <summary>
+            Represents an item in a priority queue.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.#ctor(System.Single,`0)">
+            <summary>
+            Initializes a new instance of the PriorityQueueItem structure.
+            </summary>
+            <param name="priority">The item's priority in the queue.</param>
+            <param name="value">The item's value.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.CompareTo(TwistedLogik.Nucleus.Collections.PriorityQueue{`0}.PriorityQueueItem)">
+            <summary>
+            Compares the current object with another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>A value that indicates the relative order of the objects being compared.</returns>
+        </member>
+        <member name="F:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.Priority">
+            <summary>
+            The item's priority in the queue.
+            </summary>
+        </member>
+        <member name="F:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.Value">
+            <summary>
+            The item's value.
+            </summary>
         </member>
         <member name="M:TwistedLogik.Nucleus.Collections.PriorityQueue`1.#ctor">
             <summary>
@@ -1291,33 +1320,10 @@
             Gets a value indicating whether the queue is empty.
             </summary>
         </member>
-        <member name="T:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem">
+        <member name="T:TwistedLogik.Nucleus.Collections.Specialized.NamespaceDoc">
             <summary>
-            Represents an item in a priority queue.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.#ctor(System.Single,`0)">
-            <summary>
-            Initializes a new instance of the PriorityQueueItem structure.
-            </summary>
-            <param name="priority">The item's priority in the queue.</param>
-            <param name="value">The item's value.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.CompareTo(TwistedLogik.Nucleus.Collections.PriorityQueue{`0}.PriorityQueueItem)">
-            <summary>
-            Compares the current object with another object of the same type.
-            </summary>
-            <param name="other">An object to compare with this object.</param>
-            <returns>A value that indicates the relative order of the objects being compared.</returns>
-        </member>
-        <member name="F:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.Priority">
-            <summary>
-            The item's priority in the queue.
-            </summary>
-        </member>
-        <member name="F:TwistedLogik.Nucleus.Collections.PriorityQueue`1.PriorityQueueItem.Value">
-            <summary>
-            The item's value.
+            The <see cref="N:TwistedLogik.Nucleus.Collections.Specialized"/> namespace contains custom collection types which
+            exist to implement specialized algorithms and which are not intended for general use.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream">
@@ -1385,7 +1391,7 @@
             <summary>
             Moves the stream's data pointer to the end of the stream.
             </summary>
-            <returns></returns>
+            <returns>The stream's data pointer after moving to the end of the stream.</returns>
         </member>
         <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.SeekObject(System.Int32)">
             <summary>
@@ -1412,13 +1418,13 @@
             <summary>
             Moves the stream's data pointer to the beginning of the stream.
             </summary>
-            <returns></returns>
+            <returns>The stream's data pointer after moving to the beginning of the stream.</returns>
         </member>
         <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.SeekEnd">
             <summary>
             Moves the stream's data pointer to the end of the stream.
             </summary>
-            <returns></returns>
+            <returns>The stream's data pointer after moving to the end of the stream.</returns>
         </member>
         <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.Reserve(System.Int32)">
             <summary>
@@ -1460,18 +1466,6 @@
             Marks the current data pointer position as the beginning of an object and advances the data pointer by the specified number of bytes.
             </summary>
             <param name="numberOfBytes">The number of bytes by which to advance the pointer.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.EnsureDataCapacity(System.Int32)">
-            <summary>
-            Ensures that the data buffer has at least the specified capacity, and expands
-            the buffer if it does not.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.EnsureIndexCapacity(System.Int32)">
-            <summary>
-            Ensures that the index buffer has at least the specified capacity, and expands
-            the buffer if it does not.
-            </summary>
         </member>
         <member name="P:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.HasAcquiredPointers">
             <summary>
@@ -1516,6 +1510,18 @@
         <member name="P:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.PositionInBytes">
             <summary>
             Gets the stream's current position in the data buffer.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.EnsureDataCapacity(System.Int32)">
+            <summary>
+            Ensures that the data buffer has at least the specified capacity, and expands
+            the buffer if it does not.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Collections.Specialized.UnsafeObjectStream.EnsureIndexCapacity(System.Int32)">
+            <summary>
+            Ensures that the index buffer has at least the specified capacity, and expands
+            the buffer if it does not.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.CommonBoxedValues">
@@ -2012,16 +2018,6 @@
             Represents an object which is dynamically constructed from data files.
             </summary>
         </member>
-        <member name="T:TwistedLogik.Nucleus.Data.IGloballyIdentified">
-            <summary>
-            Represents an object that has been assigned a globally-unique identification value.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Data.IGloballyIdentified.GlobalID">
-            <summary>
-            Gets the object's globally-unique identifier.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Nucleus.Data.DataObject.#ctor(System.String,System.Guid)">
             <summary>
             Initializes a new instance of the <see cref="T:TwistedLogik.Nucleus.Data.DataObject"/> class.
@@ -2113,60 +2109,6 @@
             </summary>
             <typeparam name="T">The type of data object managed by the registry.</typeparam>
         </member>
-        <member name="T:TwistedLogik.Nucleus.Data.IDataObjectRegistry">
-            <summary>
-            Represents a registry of data-driven objects of a particular type.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Register">
-            <summary>
-            Indicates that the registry has been added to the global collection of registries.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Unregister">
-            <summary>
-            Indicates that the registry has been removed from the global collection of registries.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.SetSourceFiles(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Sets the collection of source files from which the registry reads object definitions.
-            </summary>
-            <param name="files">A collection of source files from which to read object definitions.</param>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Clear">
-            <summary>
-            Removes all objects from the registry and returns it to its default state.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.LoadKeys">
-            <summary>
-            Loads the registry's object keys.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.LoadObjects">
-            <summary>
-            Loads the registry's objects.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.ResolveObjectKey(System.String)">
-            <summary>
-            Resolves an object key to a global identifier.
-            </summary>
-            <param name="key">The object key to resolve.</param>
-            <returns>The global identifier associated with the specified object key, or <c>null</c> if no such key exists.</returns>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Data.IDataObjectRegistry.ReferenceResolutionName">
-            <summary>
-            Gets the data object's reference resolution name, which is used to resolve
-            references with the format @ReferenceResolutionName:KEY
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Data.IDataObjectRegistry.DataElementName">
-            <summary>
-            The name of the content elements in the definition files loaded by this registry.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.TwistedLogik#Nucleus#Data#IDataObjectRegistry#Register">
             <inheritdoc/>
         </member>
@@ -2229,7 +2171,7 @@
             </summary>
             <returns>An enumerator for the collection.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@T}}#GetEnumerator">
+        <member name="M:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String,T}}#GetEnumerator">
             <summary>
             Gets an enumerator for the collection.
             </summary>
@@ -2240,6 +2182,17 @@
             Gets an enumerator for the collection.
             </summary>
             <returns>An enumerator for the collection.</returns>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.ReferenceResolutionName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.DataElementName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.Count">
+            <summary>
+            Gets the number of registered objects.
+            </summary>
         </member>
         <member name="M:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.OnRegistered">
             <summary>
@@ -2323,17 +2276,6 @@
             </summary>
             <param name="obj">The object to register.</param>
         </member>
-        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.ReferenceResolutionName">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.DataElementName">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.Count">
-            <summary>
-            Gets the number of registered objects.
-            </summary>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Data.DataObjectRegistry`1.DefaultObjectClass">
             <summary>
             Gets the default class for objects loaded by this registry.
@@ -2370,6 +2312,70 @@
             <typeparam name="T">The type of data object being evaluated.</typeparam>
             <param name="localID">The local identifier to translate.</param>
             <returns>The translated local identifier.</returns>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Data.IDataObjectRegistry">
+            <summary>
+            Represents a registry of data-driven objects of a particular type.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Register">
+            <summary>
+            Indicates that the registry has been added to the global collection of registries.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Unregister">
+            <summary>
+            Indicates that the registry has been removed from the global collection of registries.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.SetSourceFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sets the collection of source files from which the registry reads object definitions.
+            </summary>
+            <param name="files">A collection of source files from which to read object definitions.</param>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.Clear">
+            <summary>
+            Removes all objects from the registry and returns it to its default state.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.LoadKeys">
+            <summary>
+            Loads the registry's object keys.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.LoadObjects">
+            <summary>
+            Loads the registry's objects.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.IDataObjectRegistry.ResolveObjectKey(System.String)">
+            <summary>
+            Resolves an object key to a global identifier.
+            </summary>
+            <param name="key">The object key to resolve.</param>
+            <returns>The global identifier associated with the specified object key, or <c>null</c> if no such key exists.</returns>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.IDataObjectRegistry.ReferenceResolutionName">
+            <summary>
+            Gets the data object's reference resolution name, which is used to resolve
+            references with the format @ReferenceResolutionName:KEY
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.IDataObjectRegistry.DataElementName">
+            <summary>
+            The name of the content elements in the definition files loaded by this registry.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Data.IGloballyIdentified">
+            <summary>
+            Represents an object that has been assigned a globally-unique identification value.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Data.IGloballyIdentified.GlobalID">
+            <summary>
+            Gets the object's globally-unique identifier.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Data.PropertyChangedEventHandler">
             <summary>
@@ -2464,11 +2470,6 @@
             <param name="name">The name of the elements to retrieve.</param>
             <returns>The element's child elements.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Data.JsonDataElement.IsPrimitiveType(Newtonsoft.Json.Linq.JToken)">
-            <summary>
-            Gets a value indicating whether the specified token has a primitive type.
-            </summary>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Data.JsonDataElement.Name">
             <summary>
             Gets the element's name.
@@ -2477,6 +2478,11 @@
         <member name="P:TwistedLogik.Nucleus.Data.JsonDataElement.Value">
             <summary>
             Gets the element's value as a string.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.JsonDataElement.IsPrimitiveType(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets a value indicating whether the specified token has a primitive type.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Data.MersenneTwister">
@@ -3067,13 +3073,6 @@
             <param name="index">Optional index values for indexed properties.</param>
             <returns>The member's current value.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Data.ObjectLoaderMember.GetIndexParameters(TwistedLogik.Nucleus.Data.DataElement)">
-            <summary>
-            Gets a set of index parameters from the specified data element.
-            </summary>
-            <param name="element">The data element from which to retrieve index parameters.</param>
-            <returns>The index parameters that were retrieved.</returns>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Data.ObjectLoaderMember.IsField">
             <summary>
             Gets a value indicating whether this member is a field.
@@ -3093,6 +3092,13 @@
             <summary>
             Gets the member's return type.
             </summary>
+        </member>
+        <member name="M:TwistedLogik.Nucleus.Data.ObjectLoaderMember.GetIndexParameters(TwistedLogik.Nucleus.Data.DataElement)">
+            <summary>
+            Gets a set of index parameters from the specified data element.
+            </summary>
+            <param name="element">The data element from which to retrieve index parameters.</param>
+            <returns>The index parameters that were retrieved.</returns>
         </member>
         <member name="T:TwistedLogik.Nucleus.Data.ObjectLoaderState">
             <summary>
@@ -3712,6 +3718,17 @@
             the Mono documentation at http://www.mono-project.com/docs/advanced/pinvoke/dllmap/ for more information.</para>
             </remarks>
         </member>
+        <member name="T:TwistedLogik.Nucleus.LibraryLoader.NativeMethods">
+            <summary>
+            Contains native methods used by <see cref="T:TwistedLogik.Nucleus.LibraryLoader"/>.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.LibraryLoader.LibraryLoaderFunction">
+            <summary>
+            Represents a method which can load native libraries.
+            </summary>
+            <param name="name">The name of the native library to load.</param>
+        </member>
         <member name="M:TwistedLogik.Nucleus.LibraryLoader.#cctor">
             <summary>
             Initializes the <see cref="T:TwistedLogik.Nucleus.LibraryLoader"/> type.
@@ -3739,17 +3756,6 @@
             <summary>
             Throws an exception indicating that the current operating system is not supported.
             </summary>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.LibraryLoader.NativeMethods">
-            <summary>
-            Contains native methods used by <see cref="T:TwistedLogik.Nucleus.LibraryLoader"/>.
-            </summary>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.LibraryLoader.LibraryLoaderFunction">
-            <summary>
-            Represents a method which can load native libraries.
-            </summary>
-            <param name="name">The name of the native library to load.</param>
         </member>
         <member name="T:TwistedLogik.Nucleus.MaskedUInt32">
             <summary>
@@ -4325,14 +4331,14 @@
             <param name="other">The message data object to evaluate against this message data object.</param>
             <returns>A message data object that represents the merged result, or <c>null</c> if the objects cannot be merged.</returns>
         </member>
-        <member name="F:TwistedLogik.Nucleus.Messages.MessageData.Empty">
-            <summary>
-            Represents an empty message data object.
-            </summary>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Messages.MessageData.IsMergeable">
             <summary>
             Gets a value indicating whether this message data is able to be merged with other message data.
+            </summary>
+        </member>
+        <member name="F:TwistedLogik.Nucleus.Messages.MessageData.Empty">
+            <summary>
+            Represents an empty message data object.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Messages.NamespaceDoc">
@@ -4487,6 +4493,14 @@
             <typeparam name="T">The type of object being disposed.</typeparam>
             <param name="obj">The object to dispose.</param>
             <returns>A <c>null</c> reference.</returns>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Splinq.NamespaceDoc">
+            <summary>
+            The <see cref="N:TwistedLogik.Nucleus.Splinq"/> namespace contains alternative implementations of 
+            common LINQ methods (such as <see cref="M:System.Linq.Enumerable.Any``1(System.Collections.Generic.IEnumerable{``0})"/> and
+            <see cref="M:System.Linq.Enumerable.Count``1(System.Collections.Generic.IEnumerable{``0})"/>) for specific collection types
+            which are designed to reduce allocations caused by boxing.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Splinq.StackExtensions">
             <summary>
@@ -5901,6 +5915,26 @@
             <param name="key">The localization key of the string to retrieve.</param>
             <returns>The <see cref="T:TwistedLogik.Nucleus.Text.LocalizedString"/> that was retrieved.</returns>
         </member>
+        <member name="P:TwistedLogik.Nucleus.Text.Localization.Strings">
+            <summary>
+            Gets the application's default localization database.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.Localization.CurrentCulture">
+            <summary>
+            Gets or sets the current culture.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.Localization.CurrentCultureDisplayName">
+            <summary>
+            Gets the display name of the current culture.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.Localization.PseudolocalizedCulture">
+            <summary>
+            Gets the culture code associated with the pseudolocalized culture.
+            </summary>
+        </member>
         <member name="M:TwistedLogik.Nucleus.Text.Localization.RegisterStandardPluralityEvaluators">
             <summary>
             Registers the localization system's standard plural group evaluators.
@@ -5943,26 +5977,6 @@
         <member name="M:TwistedLogik.Nucleus.Text.Localization.MatchVariantInternal(System.String,TwistedLogik.Nucleus.Text.LocalizedString,TwistedLogik.Nucleus.Text.LocalizedStringVariant,TwistedLogik.Nucleus.Text.StringSegment)">
             <summary>
             Matches a source string to a target variant according to the specified culture and rule.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.Localization.Strings">
-            <summary>
-            Gets the application's default localization database.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.Localization.CurrentCulture">
-            <summary>
-            Gets or sets the current culture.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.Localization.CurrentCultureDisplayName">
-            <summary>
-            Gets the display name of the current culture.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.Localization.PseudolocalizedCulture">
-            <summary>
-            Gets the culture code associated with the pseudolocalized culture.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Text.LocalizationDatabase">
@@ -6134,6 +6148,26 @@
             </summary>
             <returns>A human-readable string that represents the object.</returns>
         </member>
+        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.Culture">
+            <summary>
+            Gets the string's associated culture.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.Key">
+            <summary>
+            Gets the string's localization key.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.ContainsHtmlEncodedCharacters">
+            <summary>
+            Gets a value indicating whether the string contains HTML encoded characters.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.PseudolocalizationDisabled">
+            <summary>
+            Gets a value indicating whether pseudolocalization is disabled for this string.
+            </summary>
+        </member>
         <member name="M:TwistedLogik.Nucleus.Text.LocalizedString.CreateFromXml(System.Xml.Linq.XElement,System.Collections.Generic.Dictionary{System.String,TwistedLogik.Nucleus.Text.LocalizedString})">
             <summary>
             Creates a set of localized strings from the specified XML element.
@@ -6162,26 +6196,6 @@
             Pseudolocalized the specified string.
             </summary>
             <param name="str">The string to pseudolocalize.</param>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.Culture">
-            <summary>
-            Gets the string's associated culture.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.Key">
-            <summary>
-            Gets the string's localization key.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.ContainsHtmlEncodedCharacters">
-            <summary>
-            Gets a value indicating whether the string contains HTML encoded characters.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Nucleus.Text.LocalizedString.PseudolocalizationDisabled">
-            <summary>
-            Gets a value indicating whether pseudolocalization is disabled for this string.
-            </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Text.LocalizationMatchEvaluatorData">
             <summary>
@@ -6302,7 +6316,7 @@
             </summary>
             <returns>An enumerator for the collection.</returns>
         </member>
-        <member name="M:TwistedLogik.Nucleus.Text.LocalizedStringVariantCollection.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String@TwistedLogik#Nucleus#Text#LocalizedStringVariant}}#GetEnumerator">
+        <member name="M:TwistedLogik.Nucleus.Text.LocalizedStringVariantCollection.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String,TwistedLogik#Nucleus#Text#LocalizedStringVariant}}#GetEnumerator">
             <summary>
             Gets an enumerator for the collection.
             </summary>
@@ -6456,6 +6470,20 @@
             <summary>
             Contains methods for formatting the contents of a <see cref="T:System.Text.StringBuilder"/> object without
             generating any allocations to the managed heap.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Text.StringFormatter.StringFormatterArgumentHandler">
+            <summary>
+            Represents a method that is used to handle a particular argument type.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="output">The output buffer.</param>
+            <param name="position">The current position within the input string.</param>
+            <param name="argument">The argument being handled.</param>
+        </member>
+        <member name="T:TwistedLogik.Nucleus.Text.StringFormatter.StringFormatterArgument">
+            <summary>
+            Represents an argument that has been added to the formatter.
             </summary>
         </member>
         <member name="M:TwistedLogik.Nucleus.Text.StringFormatter.#ctor">
@@ -6750,20 +6778,6 @@
             <param name="output">The output buffer.</param>
             <param name="position">The current position within the input string.</param>
             <param name="argument">The argument being handled.</param>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.Text.StringFormatter.StringFormatterArgumentHandler">
-            <summary>
-            Represents a method that is used to handle a particular argument type.
-            </summary>
-            <param name="input">The input string.</param>
-            <param name="output">The output buffer.</param>
-            <param name="position">The current position within the input string.</param>
-            <param name="argument">The argument being handled.</param>
-        </member>
-        <member name="T:TwistedLogik.Nucleus.Text.StringFormatter.StringFormatterArgument">
-            <summary>
-            Represents an argument that has been added to the formatter.
-            </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Text.StringPtr16">
             <summary>
@@ -7202,11 +7216,6 @@
             <param name="value">The string for which to search.</param>
             <returns>The index of the first occurrence of the specified string, or -1 if the string segment does not contain the string.</returns>
         </member>
-        <member name="F:TwistedLogik.Nucleus.Text.StringSegment.Empty">
-            <summary>
-            Represents an empty string segment.
-            </summary>
-        </member>
         <member name="P:TwistedLogik.Nucleus.Text.StringSegment.Item(System.Int32)">
             <summary>
             Gets the character at the specified index within the string segment.
@@ -7242,6 +7251,11 @@
         <member name="P:TwistedLogik.Nucleus.Text.StringSegment.IsEmpty">
             <summary>
             Gets a value indicating whether this is an empty string segment.
+            </summary>
+        </member>
+        <member name="F:TwistedLogik.Nucleus.Text.StringSegment.Empty">
+            <summary>
+            Represents an empty string segment.
             </summary>
         </member>
         <member name="T:TwistedLogik.Nucleus.Text.StringSegmentExtensions">

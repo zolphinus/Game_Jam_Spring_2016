@@ -138,12 +138,16 @@
   <ItemGroup>
     <Compile Include="Assets\GlobalSpriteID.cs" />
     <Compile Include="Assets\GlobalFontID.cs" />
+    <Compile Include="BasicFiringPattern.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Input\GameInputActions.cs" />
     <Compile Include="Input\IUltravioletInputExtensions.cs" />
+    <Compile Include="PlayerObject.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VectorExtensions.cs" />
+    <Compile Include="Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Program Files %28x86%29\Ultraviolet Framework\v1.3\Dependencies\x64\unix\libbass.so">
@@ -189,6 +193,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Sprites\Brown_Kernel.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Sprites\Green_Corn.sprite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -242,6 +249,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Box2DX.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Textures\Brown_Kernel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Textures\Brown_Kernel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sprites\Textures\Green_Corn.png">

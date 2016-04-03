@@ -17,6 +17,8 @@ using Box2DX.Common;
 using TwistedLogik.Ultraviolet.Input;
 using ExtensionMethods;
 using TwistedLogik.Ultraviolet.Graphics;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GameJamSpring2016
 {
@@ -82,6 +84,9 @@ namespace GameJamSpring2016
             MouseInputBinding mib = new MouseInputBinding(this.Ultraviolet, MouseButton.Left);
             mouse = mib.Mouse;
 
+            //initialize the firingBullet bool
+            firingBullet = false;
+
             //Setup Box2D world
             worldAABB = new AABB();
             worldAABB.Center.Set(0F, 0F);
@@ -131,12 +136,16 @@ namespace GameJamSpring2016
 
             //player object initialization
             this.sprite = this.content.Load<Sprite>(GlobalSpriteID.Green_Corn);
-            this.playerObject = new GameObject();
-            this.playerObject.position = new Vector2(32, 32);
-            this.playerObject.sprite = this.sprite;
-            this.playerObject.animationIndex = 0;
-            this.playerObject.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
-            this.playerObject.SetupBodyFromSprite(physicsWorld);
+            this.playerObj = new PlayerObject();
+            this.playerObj.playerHealth = 20;
+            this.playerObj.position = new Vector2(32, 32);
+            this.playerObj.sprite = this.sprite;
+            this.playerObj.animationIndex = 0;
+            this.playerObj.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
+            this.playerObj.SetupBodyFromSprite(physicsWorld);
+
+            //set up the queue for projectiles
+            this.gameProjectiles = new Queue<Projectile>();
 
             this.spriteBatch = SpriteBatch.Create();
             this.spriteFont = this.content.Load<SpriteFont>(GlobalFontID.SegoeUI);
@@ -216,11 +225,22 @@ namespace GameJamSpring2016
         {
             if (Ultraviolet.GetInput().GetActions().MoveLeft.IsPressed() || Ultraviolet.GetInput().GetActions().MoveLeft.IsDown())
             {
-                MoveGameObject(new Vec2(-30, 0), playerObject);
+                MoveGameObject(new Vec2(-30, 0), playerObj);
             }
             if (Ultraviolet.GetInput().GetActions().MoveRight.IsPressed() || Ultraviolet.GetInput().GetActions().MoveRight.IsDown())
             {
-                MoveGameObject(new Vec2(+30, 0), playerObject);
+                MoveGameObject(new Vec2(+30, 0), playerObj);
+            }
+            if (Ultraviolet.GetInput().GetActions().Shoot.IsPressed())
+            {
+                //retrieve projectiles from shooting
+                Projectile[] temp = playerObj.playerWeapon.pattern.ShootWeapon(playerObj.position, new Vector2(mouse.X, mouse.Y));
+
+                //add returned projectiles to the queue
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    gameProjectiles.Enqueue(temp[i]);
+                }
             }
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
             {
@@ -233,8 +253,25 @@ namespace GameJamSpring2016
                 
             }
 
+            //FIRE THE BULLETS (just 1) (and apply sprites as they appear)
+            if (gameProjectiles.Count >= 1)
+            {
+                firedBullet = gameProjectiles.Dequeue();
+                firedBullet.sprite = content.Load<Sprite>(GlobalSpriteID.Brown_Kernel);
+                firedBullet.animationIndex = 0;
+                firedBullet.animations = new SpriteAnimationController[] { sprite["Brown_Kernel"].Controller };
+                firedBullet.SetupBodyFromSprite(physicsWorld);
+                firedBullet.body2D.ApplyForce(firedBullet.fireDirection.ToWorldVector(), firedBullet.position.ToWorldVector());
+
+                firingBullet = true;
+            }
+            else
+            {
+                firingBullet = false;
+            }
+
             physicsWorld.Step(1F / 60F, 10, 10);
-            playerObject.position = playerObject.body2D.GetPosition().ToScreenVector();
+            playerObj.position = playerObj.body2D.GetPosition().ToScreenVector();
 
             base.OnUpdating(time);
         }
@@ -248,7 +285,13 @@ namespace GameJamSpring2016
             spriteBatch.Begin();
 
             //player sprite draw
-            spriteBatch.DrawSprite(this.playerObject.animations[this.playerObject.animationIndex], this.playerObject.position);    
+            spriteBatch.DrawSprite(this.playerObj.animations[this.playerObj.animationIndex], this.playerObj.position);
+
+            //if a bullet is being fired, draw it
+            if (firingBullet)
+            {
+                spriteBatch.DrawSprite(this.firedBullet.animations[this.firedBullet.animationIndex], this.firedBullet.position);
+            }
 
             textFormatter.Reset();
             textFormatter.AddArgument(Ultraviolet.GetGraphics().FrameRate);
@@ -307,7 +350,7 @@ namespace GameJamSpring2016
         }
 
         // The global content manager.  Manages any content that should remain loaded for the duration of the game's execution.
-        private ContentManager content;
+        public ContentManager content;
 
         private MouseDevice mouse;
 
@@ -356,7 +399,12 @@ namespace GameJamSpring2016
         private GameObject groundTestObject;
 
         //Player Object
-        private GameObject playerObject;
+        private PlayerObject playerObj;
         private Sprite sprite;
+
+        //Queue for the projectiles in game
+        private Queue<Projectile> gameProjectiles;
+        private Projectile firedBullet;
+        private bool firingBullet;
     }
 }

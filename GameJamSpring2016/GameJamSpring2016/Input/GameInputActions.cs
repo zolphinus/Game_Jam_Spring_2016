@@ -57,6 +57,12 @@ namespace GameJamSpring2016.Input
             private set;
         }
 
+        public InputAction Shoot
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         /// Called when the collection is creating its actions.
         /// </summary>
@@ -69,6 +75,7 @@ namespace GameJamSpring2016.Input
             MoveDown = CreateAction("MOVE_DOWN");
             MoveLeft = CreateAction("MOVE_LEFT");
             MoveRight = CreateAction("MOVE_RIGHT");
+            Shoot = CreateAction("SHOOT");
 
             base.OnCreatingActions();
         }
@@ -91,6 +98,7 @@ namespace GameJamSpring2016.Input
             MoveLeft.Secondary = CreateKeyboardBinding(Key.Left);
             MoveRight.Primary = CreateKeyboardBinding(Key.D);
             MoveRight.Secondary = CreateKeyboardBinding(Key.Right);
+            Shoot.Primary = CreateMouseBinding(MouseButton.Left);
 #endif
 
             base.OnResetting();
