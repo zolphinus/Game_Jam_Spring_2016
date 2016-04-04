@@ -59,6 +59,8 @@ namespace GameJamSpring2016
         {
             var configuration = new OpenGLUltravioletConfiguration();
             PopulateConfiguration(configuration);
+            configuration.WindowIsResizable = false;
+            configuration.InitialWindowPosition = new Rectangle(0, 0, 1024, 768);
 
 #if DEBUG
             configuration.Debug = true;
