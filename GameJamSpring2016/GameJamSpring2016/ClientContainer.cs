@@ -16,6 +16,6 @@ namespace GameJamSpring2016
 
         public byte[] buffer = new byte[bufferSize];
 
-        public StringBuilder sb;
+        public StringBuilder sb = null;
     }
 }

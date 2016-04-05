@@ -10,7 +10,7 @@ namespace GameJamSpring2016
 {
     class DataSocketServer
     {
-        private List<ClientContainer> clients;
+        //private List<ClientContainer> clients;
 
         public static ManualResetEvent allDone = new ManualResetEvent(false);
 
@@ -59,7 +59,6 @@ namespace GameJamSpring2016
 
             Console.WriteLine("\nPress ENTER to continue...");
             Console.Read();
-
         }
 
         public static void AcceptCallback(IAsyncResult ar)

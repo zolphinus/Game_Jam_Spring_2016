@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 using GameJamSpring2016.Assets;
 using GameJamSpring2016.Input;
 using TwistedLogik.Nucleus;
@@ -115,6 +116,10 @@ namespace GameJamSpring2016
 
             groundShapeDef.SetAsBox(1F, 1F);
             groundTestObject.body2D.CreateFixture(groundShapeDef);
+
+            server = new DataSocketServer();
+            serverThread = new Thread(new ThreadStart(DataSocketServer.StartListening));
+            serverThread.Start();
 
             base.OnInitialized();
         }
@@ -287,6 +292,9 @@ namespace GameJamSpring2016
         {
             SaveInputBindings();
 
+            serverThread.Abort();
+            serverThread.Join();
+
             base.OnShutdown();
         }
 
@@ -360,5 +368,9 @@ namespace GameJamSpring2016
         //Player Object
         private GameObject playerObject;
         private Sprite sprite;
+
+        //Networking objects
+        private DataSocketServer server;
+        private Thread serverThread;
     }
 }
