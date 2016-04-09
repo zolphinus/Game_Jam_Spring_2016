@@ -9,10 +9,6 @@ namespace GameJamSpring2016
 {
     interface IFiringPattern
     {
-        Projectile[] ShootWeapon(Vector2 position, Vector2 direction) 
-        {
-            Projectile[] projectiles = null;
-            return projectiles;
-        }
+        Projectile[] ShootWeapon(object[] parameters);
     }
 }

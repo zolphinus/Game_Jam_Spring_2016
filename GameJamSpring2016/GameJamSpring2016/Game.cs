@@ -114,9 +114,14 @@ namespace GameJamSpring2016
             groundTestObject = new GameObject();
             groundTestObject.body2D = physicsWorld.CreateBody(groundDef);
 
+            //ground's filter/fixture
+            groundTestObject.categoryBit = 0x001;
+
             PolygonDef groundShapeDef = new PolygonDef();
 
             groundShapeDef.SetAsBox(1F, 1F);
+            groundShapeDef.Filter.CategoryBits = groundTestObject.categoryBit;
+            groundShapeDef.Filter.MaskBits = 0x002;
             groundTestObject.body2D.CreateFixture(groundShapeDef);
 
             base.OnInitialized();
@@ -142,7 +147,11 @@ namespace GameJamSpring2016
             this.playerObj.sprite = this.sprite;
             this.playerObj.animationIndex = 0;
             this.playerObj.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
+            this.playerObj.personalBit = this.playerObj.categoryBit;
             this.playerObj.SetupBodyFromSprite(physicsWorld);
+            this.playerObj.playerWeapon = new Weapon();
+            this.playerObj.playerWeapon.pattern = new BasicFiringPattern();
+            this.isHost = true; //hard setting this for now
 
             //set up the queue for projectiles
             this.gameProjectiles = new Queue<Projectile>();
@@ -223,6 +232,16 @@ namespace GameJamSpring2016
         /// <param name="time">Time elapsed since the last call to Update.</param>
         protected override void OnUpdating(UltravioletTime time)
         {
+            //handle all of the host's responsibilities
+            if (isHost)
+            {
+
+            }
+            else //handle all of the non-host's responsibilities
+            {
+
+            }
+
             if (Ultraviolet.GetInput().GetActions().MoveLeft.IsPressed() || Ultraviolet.GetInput().GetActions().MoveLeft.IsDown())
             {
                 MoveGameObject(new Vec2(-30, 0), playerObj);
@@ -233,13 +252,17 @@ namespace GameJamSpring2016
             }
             if (Ultraviolet.GetInput().GetActions().Shoot.IsPressed())
             {
+                object[] parameters = { playerObj.position, new Vector2(mouse.X, mouse.Y) };
+
                 //retrieve projectiles from shooting
-                Projectile[] temp = playerObj.playerWeapon.pattern.ShootWeapon(playerObj.position, new Vector2(mouse.X, mouse.Y));
+                Projectile[] temp = playerObj.playerWeapon.pattern.ShootWeapon(parameters);
 
                 //add returned projectiles to the queue
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    gameProjectiles.Enqueue(temp[i]);
+                    Projectile tempProj = temp[i];
+                    tempProj.personalBit = playerObj.personalBit;
+                    gameProjectiles.Enqueue(tempProj);
                 }
             }
             if (Ultraviolet.GetInput().GetActions().ExitApplication.IsPressed())
@@ -259,9 +282,15 @@ namespace GameJamSpring2016
                 firedBullet = gameProjectiles.Dequeue();
                 firedBullet.sprite = content.Load<Sprite>(GlobalSpriteID.Brown_Kernel);
                 firedBullet.animationIndex = 0;
-                firedBullet.animations = new SpriteAnimationController[] { sprite["Brown_Kernel"].Controller };
+                firedBullet.animations = new SpriteAnimationController[] { firedBullet.sprite["Brown_Kernel"].Controller };
                 firedBullet.SetupBodyFromSprite(physicsWorld);
-                firedBullet.body2D.ApplyForce(firedBullet.fireDirection.ToWorldVector(), firedBullet.position.ToWorldVector());
+                firedBullet.body2D.ApplyImpulse(firedBullet.speed * firedBullet.fireDirection.ToWorldVector(), firedBullet.position.ToWorldVector());
+
+                bool BullShit = (firedBullet.body2D.GetFixtureList().Filter.CategoryBits & playerObj.body2D.GetFixtureList().Filter.MaskBits) != 0
+                    && (firedBullet.body2D.GetFixtureList().Filter.MaskBits & playerObj.body2D.GetFixtureList().Filter.CategoryBits) != 0;
+
+                //knockback from weapon
+                //playerObj.body2D.ApplyImpulse();
 
                 firingBullet = true;
             }
@@ -406,5 +435,8 @@ namespace GameJamSpring2016
         private Queue<Projectile> gameProjectiles;
         private Projectile firedBullet;
         private bool firingBullet;
+
+        //tell whether this is the host of the game or the other players
+        private bool isHost;
     }
 }

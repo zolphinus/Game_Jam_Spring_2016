@@ -9,7 +9,7 @@ namespace GameJamSpring2016
     class Projectile : GameObject
     {
         private int _damage;
-        private int _projectileSpeed;
+        private float _speed;
         private Vector2 _fireDirection;
         private bool _canDamage;
 
@@ -18,10 +18,10 @@ namespace GameJamSpring2016
             get { return _damage; }
             set { _damage = value; }
         }
-        public int projectileSpeed
+        public float speed
         {
-            get { return _projectileSpeed; }
-            set { _projectileSpeed = value; }
+            get { return _speed; }
+            set { _speed = value; }
         }
         public Vector2 fireDirection
         {

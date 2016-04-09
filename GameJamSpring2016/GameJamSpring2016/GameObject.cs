@@ -26,6 +26,8 @@ namespace GameJamSpring2016
         private SpriteAnimationController[] _animations;
         private Body _body2D;
         private int _animationIndex;
+        private ushort _categoryBit = 1;
+        private ushort _personalBit;
 
         public Vector2 position
         {
@@ -57,6 +59,18 @@ namespace GameJamSpring2016
             set { _animationIndex = value; }
         }
 
+        public ushort categoryBit
+        {
+            get { return _categoryBit++; }
+            set { _categoryBit = value; }
+        }
+
+        public ushort personalBit
+        {
+            get { return _personalBit; }
+            set { _personalBit = value; }
+        }
+
         public void DrawObject(SpriteBatch batch, bool debug = false, TextRenderer rend = null, TextLayoutSettings settings = new TextLayoutSettings())
         {
             if(debug)
@@ -86,6 +100,8 @@ namespace GameJamSpring2016
             PolygonDef shapeDef = new PolygonDef();
             shapeDef.SetAsBox((float)animations[animationIndex].Width / Game.pixelsToMeters, (float)animations[animationIndex].Height / Game.pixelsToMeters);
             shapeDef.Density = 1F;
+            shapeDef.Filter.CategoryBits = (ushort)(~(int)_personalBit);
+            shapeDef.Filter.MaskBits = 0;
 
             body2D.CreateFixture(shapeDef);
             body2D.SetMassFromShapes();
