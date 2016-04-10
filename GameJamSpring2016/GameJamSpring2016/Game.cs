@@ -115,14 +115,16 @@ namespace GameJamSpring2016
             groundTestObject.body2D = physicsWorld.CreateBody(groundDef);
 
             //ground's filter/fixture
-            groundTestObject.categoryBit = 0x001;
+            groundTestObject.personalBit = 0x001;
 
             PolygonDef groundShapeDef = new PolygonDef();
 
             groundShapeDef.SetAsBox(1F, 1F);
-            groundShapeDef.Filter.CategoryBits = groundTestObject.categoryBit;
+            groundShapeDef.Filter.CategoryBits = groundTestObject.personalBit;
             groundShapeDef.Filter.MaskBits = 0x002;
             groundTestObject.body2D.CreateFixture(groundShapeDef);
+
+            drawnObjects = new List<GameObject>();
 
             base.OnInitialized();
         }
@@ -147,8 +149,8 @@ namespace GameJamSpring2016
             this.playerObj.sprite = this.sprite;
             this.playerObj.animationIndex = 0;
             this.playerObj.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
-            this.playerObj.personalBit = this.playerObj.categoryBit;
-            this.playerObj.SetupBodyFromSprite(physicsWorld);
+            this.playerObj.personalBit = GameObject.categoryBit;
+            //this.playerObj.SetupBodyFromSprite(physicsWorld);
             this.playerObj.playerWeapon = new Weapon();
             this.playerObj.playerWeapon.pattern = new BasicFiringPattern();
             this.isHost = true; //hard setting this for now
@@ -284,13 +286,15 @@ namespace GameJamSpring2016
                 firedBullet.animationIndex = 0;
                 firedBullet.animations = new SpriteAnimationController[] { firedBullet.sprite["Brown_Kernel"].Controller };
                 firedBullet.SetupBodyFromSprite(physicsWorld);
-                firedBullet.body2D.ApplyImpulse(firedBullet.speed * firedBullet.fireDirection.ToWorldVector(), firedBullet.position.ToWorldVector());
+                firedBullet.body2D.ApplyImpulse(firedBullet.speed * firedBullet.fireDirection.ToWorldVector()*(1F / firedBullet.fireDirection.ToWorldVector().Normalize()), firedBullet.position.ToWorldVector());
 
-                bool BullShit = (firedBullet.body2D.GetFixtureList().Filter.CategoryBits & playerObj.body2D.GetFixtureList().Filter.MaskBits) != 0
-                    && (firedBullet.body2D.GetFixtureList().Filter.MaskBits & playerObj.body2D.GetFixtureList().Filter.CategoryBits) != 0;
+                //bool BullShit = (firedBullet.body2D.GetFixtureList().Filter.CategoryBits & playerObj.body2D.GetFixtureList().Filter.MaskBits) != 0
+                   // && (firedBullet.body2D.GetFixtureList().Filter.MaskBits & playerObj.body2D.GetFixtureList().Filter.CategoryBits) != 0;
 
                 //knockback from weapon
                 //playerObj.body2D.ApplyImpulse();
+
+                drawnObjects.Add(firedBullet);
 
                 firingBullet = true;
             }
@@ -300,7 +304,7 @@ namespace GameJamSpring2016
             }
 
             physicsWorld.Step(1F / 60F, 10, 10);
-            playerObj.position = playerObj.body2D.GetPosition().ToScreenVector();
+            //playerObj.position = playerObj.body2D.GetPosition().ToScreenVector();
 
             base.OnUpdating(time);
         }
@@ -313,14 +317,18 @@ namespace GameJamSpring2016
         {
             spriteBatch.Begin();
 
+            if (firingBullet) { };
+
             //player sprite draw
             spriteBatch.DrawSprite(this.playerObj.animations[this.playerObj.animationIndex], this.playerObj.position);
 
             //if a bullet is being fired, draw it
-            if (firingBullet)
+            for (int i = 0; i < drawnObjects.Count; i++)
             {
-                spriteBatch.DrawSprite(this.firedBullet.animations[this.firedBullet.animationIndex], this.firedBullet.position);
+                drawnObjects[i].position = drawnObjects[i].body2D.GetPosition().ToScreenVector();
+                spriteBatch.DrawSprite(drawnObjects[i].animations[drawnObjects[i].animationIndex], drawnObjects[i].position);
             }
+            
 
             textFormatter.Reset();
             textFormatter.AddArgument(Ultraviolet.GetGraphics().FrameRate);
@@ -426,6 +434,7 @@ namespace GameJamSpring2016
 
         //private GameObject physicsTestObject;
         private GameObject groundTestObject;
+        private List<GameObject> drawnObjects;
 
         //Player Object
         private PlayerObject playerObj;

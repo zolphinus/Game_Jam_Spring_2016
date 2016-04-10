@@ -48,9 +48,6 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontProcessor.Process(TwistedLogik.Ultraviolet.Content.ContentManager,TwistedLogik.Ultraviolet.Content.IContentProcessorMetadata,System.Xml.Linq.XDocument)">
             <inheritdoc/>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontProcessor.SupportsPreprocessing">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontProcessor.GetTextureName(TwistedLogik.Ultraviolet.Content.IContentProcessorMetadata,System.Xml.Linq.XElement)">
             <summary>
             Reads the texture asset from the specified font face definition.
@@ -142,6 +139,9 @@
             <param name="characterRegions">The font's list of character regions.</param>
             <returns>The processed font face, or null if the specified style does not exist in the font.</returns>
         </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontProcessor.SupportsPreprocessing">
+            <inheritdoc/>
+        </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontTextureProcessor">
             <summary>
             Loads sprite font assets.
@@ -158,84 +158,6 @@
         </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLSpriteFontTextureProcessor.SupportsPreprocessing">
             <inheritdoc/>
-        </member>
-        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect">
-            <summary>
-            Represents the OpenGL/SDL2 implementation of <see cref="T:TwistedLogik.Ultraviolet.Graphics.BasicEffect"/>.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.#ctor(TwistedLogik.Ultraviolet.UltravioletContext)">
-            <summary>
-            Initializes a new instance of the OpenGLSpriteBatchEffect class.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.OnVertexColorEnabledChanged">
-            <summary>
-            Occurs when the value of the VertexColorEnabled property changes.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.OnTextureEnabledChanged">
-            <summary>
-            Occurs when the value of the TextureEnabled property changes.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.CreateEffectImplementation(TwistedLogik.Ultraviolet.UltravioletContext)">
-            <summary>
-            Creates the effect implementation.
-            </summary>
-            <param name="uv">The Ultraviolet context.</param>
-            <returns>The effect implementation.</returns>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.UpdateProgramIndex">
-            <summary>
-            Changes the effect's program index based on its current settings.
-            </summary>
-        </member>
-        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect">
-            <summary>
-            Represents the OpenGL/SDL2 implementation of <see cref="T:TwistedLogik.Ultraviolet.Graphics.BlurEffect"/>.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.#ctor(TwistedLogik.Ultraviolet.UltravioletContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect"/> class.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnRadiusChanged">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnDirectionChanged">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnTextureSizeChanged">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.IsArbitaryRadiusBlurAvailable">
-            <summary>
-            Gets a value indicating whether the arbitary-radius blur shader should be loaded.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateRadius">
-            <summary>
-            Updates the value of the Radius effect parameter.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateDirection">
-            <summary>
-            Updates the value of the Direction effect parameter.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateResolution">
-            <summary>
-            Updates the value of the Resolution effect parameter.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.CreateEffectImplementation(TwistedLogik.Ultraviolet.UltravioletContext)">
-            <summary>
-            Creates the effect implementation.
-            </summary>
-            <param name="uv">The Ultraviolet context.</param>
-            <returns>The effect implementation.</returns>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.IBindableResource">
             <summary>
@@ -270,6 +192,38 @@
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.IOpenGLResource.OpenGLName">
             <summary>
             Gets the resource's OpenGL name.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect">
+            <summary>
+            Represents the OpenGL/SDL2 implementation of <see cref="T:TwistedLogik.Ultraviolet.Graphics.BasicEffect"/>.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.#ctor(TwistedLogik.Ultraviolet.UltravioletContext)">
+            <summary>
+            Initializes a new instance of the OpenGLSpriteBatchEffect class.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.OnVertexColorEnabledChanged">
+            <summary>
+            Occurs when the value of the VertexColorEnabled property changes.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.OnTextureEnabledChanged">
+            <summary>
+            Occurs when the value of the TextureEnabled property changes.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.CreateEffectImplementation(TwistedLogik.Ultraviolet.UltravioletContext)">
+            <summary>
+            Creates the effect implementation.
+            </summary>
+            <param name="uv">The Ultraviolet context.</param>
+            <returns>The effect implementation.</returns>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBasicEffect.UpdateProgramIndex">
+            <summary>
+            Changes the effect's program index based on its current settings.
             </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLBlendState">
@@ -311,11 +265,6 @@
             <param name="uv">The Ultraviolet context.</param>
             <returns>The blend state that was created.</returns>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLBlendState.IsSeparateBlend">
-            <summary>
-            Gets a value indicating whether this state uses separate alpha and color blending.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLBlendState.Apply">
             <summary>
             Applies the blend state to the device.
@@ -335,6 +284,57 @@
             <param name="blend">The Ultraviolet Blend value to convert.</param>
             <param name="alpha">A value indicating whether alpha blending is enabled.</param>
             <returns>The converted OpenGL value.</returns>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLBlendState.IsSeparateBlend">
+            <summary>
+            Gets a value indicating whether this state uses separate alpha and color blending.
+            </summary>
+        </member>
+        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect">
+            <summary>
+            Represents the OpenGL/SDL2 implementation of <see cref="T:TwistedLogik.Ultraviolet.Graphics.BlurEffect"/>.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.#ctor(TwistedLogik.Ultraviolet.UltravioletContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect"/> class.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnRadiusChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnDirectionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.OnTextureSizeChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateRadius">
+            <summary>
+            Updates the value of the Radius effect parameter.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateDirection">
+            <summary>
+            Updates the value of the Direction effect parameter.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.UpdateResolution">
+            <summary>
+            Updates the value of the Resolution effect parameter.
+            </summary>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.CreateEffectImplementation(TwistedLogik.Ultraviolet.UltravioletContext)">
+            <summary>
+            Creates the effect implementation.
+            </summary>
+            <param name="uv">The Ultraviolet context.</param>
+            <returns>The effect implementation.</returns>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.Graphics2D.OpenGLBlurEffect.IsArbitaryRadiusBlurAvailable">
+            <summary>
+            Gets a value indicating whether the arbitary-radius blur shader should be loaded.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLDepthStencilState">
             <summary>
@@ -399,6 +399,19 @@
             <param name="uv">The Ultraviolet context.</param>
             <param name="techniques">The effect's techniques.</param>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementation.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementation.CreateEffectParameters(System.Collections.Generic.IEnumerable{TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectTechnique})">
+            <summary>
+            Creates an effect parameter collection from the specified collection of techniques.
+            </summary>
+            <param name="techniques">The collection of techniques from which to create an effect parameter collection.</param>
+            <returns>The effect parameter collection that was created.</returns>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementation.Parameters">
             <summary>
             Gets the effect's collection of parameters.
@@ -414,19 +427,6 @@
             Gets the effect's current technique.
             </summary>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementation.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementation.CreateEffectParameters(System.Collections.Generic.IEnumerable{TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectTechnique})">
-            <summary>
-            Creates an effect parameter collection from the specified collection of techniques.
-            </summary>
-            <param name="techniques">The collection of techniques from which to create an effect parameter collection.</param>
-            <returns>The effect parameter collection that was created.</returns>
-        </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementationProcessor">
             <summary>
             Loads shader effect assets.
@@ -441,9 +441,6 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementationProcessor.Process(TwistedLogik.Ultraviolet.Content.ContentManager,TwistedLogik.Ultraviolet.Content.IContentProcessorMetadata,System.Xml.Linq.XDocument)">
             <inheritdoc/>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementationProcessor.SupportsPreprocessing">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementationProcessor.GetShader(System.Xml.Linq.XElement,System.String)">
             <summary>
             Gets the asset path of the specified shader.
@@ -451,6 +448,9 @@
             <param name="element">The XML element that defines the shaders for an effect pass.</param>
             <param name="shader">The name of the shader to retrieve.</param>
             <returns>The asset path of the specified shader.</returns>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectImplementationProcessor.SupportsPreprocessing">
+            <inheritdoc/>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLEffectParameter">
             <summary>
@@ -1157,16 +1157,16 @@
             <param name="uv">The Ultraviolet context.</param>
             <param name="source">The shader source.</param>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLFragmentShader.OpenGLName">
-            <summary>
-            Gets the OpenGL shader handle.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLFragmentShader.Dispose(System.Boolean)">
             <summary>
             Releases resources associated with this object.
             </summary>
             <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLFragmentShader.OpenGLName">
+            <summary>
+            Gets the OpenGL shader handle.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLFragmentShaderImporter">
             <summary>
@@ -1214,9 +1214,6 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.Attach(TwistedLogik.Ultraviolet.Graphics.VertexBuffer)">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.Attach(TwistedLogik.Ultraviolet.Graphics.VertexBuffer,System.Int32)">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.Attach(TwistedLogik.Ultraviolet.Graphics.IndexBuffer)">
             <inheritdoc/>
         </member>
@@ -1231,43 +1228,16 @@
             </summary>
             <param name="program">The OpenGL identifier of the shader program being used to render.</param>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.IsUsingVertexArrayObject">
-            <summary>
-            Gets a value indicating whether this geometry stream is implemented using a vertex array object (VAO).
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.SupportsInstancedRendering">
-            <summary>
-            Gets a value indicating whether the geometry stream supports instanced rendering.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.OpenGLName">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasMultipleSources">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasVertices">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasIndices">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.IndexBufferElementType">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.Dispose(System.Boolean)">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.GetVertexFormatGL(TwistedLogik.Ultraviolet.Graphics.VertexFormat,System.Int32@,System.Int32@,System.Boolean@,System.Boolean@)">
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.GetVertexFormatGL(TwistedLogik.Ultraviolet.Graphics.VertexFormat,System.Int32@,System.Int32@)">
             <summary>
             Gets the OpenGL vertex format that corresponds to the specified Ultraviolet vertex format.
             </summary>
             <param name="format">The vertex format to convert.</param>
             <param name="size">The number of components in the element.</param>
             <param name="stride">The vertex stride in bytes.</param>
-            <param name="normalize">A value indicating whether to normalize the attribute's values.</param>
-            <param name="integer">A value indicating whether to upload the attribute as an integer type.</param>
             <returns>The converted vertex format.</returns>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.GetVertexAttributeNameFromUsage(TwistedLogik.Ultraviolet.Graphics.VertexUsage,System.Int32)">
@@ -1290,44 +1260,31 @@
             Disables all of the active vertex attributes for the currently cached program.
             </summary>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.BindBuffers">
-            <summary>
-            Binds the geometry stream's buffers to the device in preparation for rendering.
-            </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.BindVertexAttributesForBuffer(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer,System.Int32)">
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.BindVertexAttributesForBuffer(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer)">
             <summary>
             Binds the specified buffer's vertex attributes to the currently cached program.
             </summary>
+            <param name="vbuffer">The vertex buffer to bind to the cached program.</param>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.AttachInternal(TwistedLogik.Ultraviolet.Graphics.VertexBuffer,System.Int32)">
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.IsUsingVertexArrayObject">
             <summary>
-            Attaches the specified vertex buffer to the geometry stream.
+            Gets a value indicating whether this geometry stream is implemented using a vertex array object (VAO).
             </summary>
         </member>
-        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.VertexBufferBinding">
-            <summary>
-            Represents a vertex buffer which has been bound to a geometry stream.
-            </summary>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.OpenGLName">
+            <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.VertexBufferBinding.#ctor(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.VertexBufferBinding"/> structure.
-            </summary>
-            <param name="vbuffer">The vertex buffer which is bound to the geometry stream.</param>
-            <param name="instanceFrequency">The number of instances which are drawn for each
-            set of data in the vertex buffer.</param>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasMultipleSources">
+            <inheritdoc/>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.VertexBufferBinding.VertexBuffer">
-            <summary>
-            Gets the vertex buffer which is bound to the geometry stream.
-            </summary>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasVertices">
+            <inheritdoc/>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.VertexBufferBinding.InstanceFrequency">
-            <summary>
-            Gets the number of instances which are drawn for each set of data
-            in the vertex buffer.
-            </summary>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.HasIndices">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGeometryStream.IndexBufferElementType">
+            <inheritdoc/>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities">
             <inheritdoc/>
@@ -1338,15 +1295,6 @@
             </summary>
         </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities.SupportsDepthStencilTextures">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities.SupportsInstancedRendering">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities.SupportsNonZeroBaseInstance">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities.SupportsPreservingRenderTargetContentInHardware">
             <inheritdoc/>
         </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLGraphicsCapabilities.MaximumTextureSize">
@@ -1387,16 +1335,6 @@
             <param name="count">The number of elements from <paramref name="data"/> to set into the buffer.</param>
             <param name="options">A hint to the underlying driver indicating whether data will be overwritten by this operation.</param>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLIndexBuffer.OpenGLName">
-            <summary>
-            Gets the resource's OpenGL name.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLIndexBuffer.IsContentLost">
-            <summary>
-            Gets a value indicating whether the buffer's content has been lost.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLIndexBuffer.Dispose(System.Boolean)">
             <summary>
             Releases resources associated with this object.
@@ -1408,6 +1346,16 @@
             Gets the size of one of the buffer's elements, in bytes.
             </summary>
             <returns>The size of one of the buffer's elements.</returns>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLIndexBuffer.OpenGLName">
+            <summary>
+            Gets the resource's OpenGL name.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLIndexBuffer.IsContentLost">
+            <summary>
+            Gets a value indicating whether the buffer's content has been lost.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRasterizerState">
             <summary>
@@ -1513,6 +1461,27 @@
             Marks the render buffer as being attached to a render target.
             </summary>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.ResizeInternal(System.Int32,System.Int32)">
+            <summary>
+            Resizes the render buffer. This method should only be called by the render target
+            to which this buffer is attached.
+            </summary>
+            <param name="width">The render buffer's new width in pixels.</param>
+            <param name="height">The render target's new width in pixels.</param>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.AllocateRenderbufferStorage(System.Int32,System.Int32)">
+            <summary>
+            Reallocates the renderbuffer's storage.
+            </summary>
+            <param name="width">The renderbuffer's width in pixels.</param>
+            <param name="height">The renderbuffer's height in pixels.</param>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.OpenGLName">
             <inheritdoc/>
         </member>
@@ -1540,54 +1509,41 @@
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.Attached">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.ResizeInternal(System.Int32,System.Int32)">
-            <summary>
-            Resizes the render buffer. This method should only be called by the render target
-            to which this buffer is attached.
-            </summary>
-            <param name="width">The render buffer's new width in pixels.</param>
-            <param name="height">The render target's new width in pixels.</param>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D.AllocateRenderbufferStorage(System.Int32,System.Int32)">
-            <summary>
-            Reallocates the renderbuffer's storage.
-            </summary>
-            <param name="width">The renderbuffer's width in pixels.</param>
-            <param name="height">The renderbuffer's height in pixels.</param>
-        </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D">
             <summary>
             Represents the OpenGL/SDL2 implementation of the RenderTarget2D class.
             </summary>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.#ctor(TwistedLogik.Ultraviolet.UltravioletContext,System.Int32,System.Int32,TwistedLogik.Ultraviolet.Graphics.RenderTargetUsage,System.Collections.Generic.IEnumerable{TwistedLogik.Ultraviolet.Graphics.RenderBuffer2D})">
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.#ctor(TwistedLogik.Ultraviolet.UltravioletContext,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{TwistedLogik.Ultraviolet.Graphics.RenderBuffer2D})">
             <summary>
             Initializes a new instance of the OpenGLRenderTarget2D class.
             </summary>
             <param name="uv">The Ultraviolet context.</param>
             <param name="width">The render target's width in pixels.</param>
             <param name="height">The render target's height in pixels.</param>
-            <param name="usage">A <see cref="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.RenderTargetUsage"/> value specifying whether the 
-            render target's data is discarded or preserved when it is bound to the graphics device.</param>
             <param name="buffers">The collection of render buffers to attach to the target.</param>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Attach(TwistedLogik.Ultraviolet.Graphics.RenderBuffer2D)">
-            <inheritdoc/>
+            <summary>
+            Attaches a render buffer to this render target.
+            </summary>
+            <param name="buffer">The render buffer to attach to this render target.</param>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Resize(System.Int32,System.Int32)">
             <inheritdoc/>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.GetData(TwistedLogik.Ultraviolet.Color[])">
-            <inheritdoc/>
+            <summary>
+            Gets the render target's data.
+            </summary>
+            <param name="data">An array to populate with the render target's data.</param>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.GetData(TwistedLogik.Ultraviolet.Color[],TwistedLogik.Ultraviolet.Rectangle)">
-            <inheritdoc/>
+            <summary>
+            Gets the render target's data.
+            </summary>
+            <param name="data">An array to populate with the render target's data.</param>
+            <param name="region">The region of the render target from which to retrieve data.</param>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.ValidateStatus">
             <summary>
@@ -1614,31 +1570,11 @@
             Unbinds the resource for reading.
             </summary>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.OpenGLName">
-            <summary>
-            Gets the resource's OpenGL name.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Size">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Width">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Height">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.BoundForReading">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.BoundForWriting">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.RenderTargetUsage">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Dispose(System.Boolean)">
-            <inheritdoc/>
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.AttachRenderBuffer(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderBuffer2D)">
             <summary>
@@ -1676,6 +1612,36 @@
             </summary>
             <param name="data">An array to populate with the render target's data.</param>
             <param name="region">The region of the render target from which to retrieve data.</param>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.OpenGLName">
+            <summary>
+            Gets the resource's OpenGL name.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Size">
+            <summary>
+            Gets the render target's size in pixels.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Width">
+            <summary>
+            Gets the render target's width in pixels.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.Height">
+            <summary>
+            Gets the render target's height in pixels.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.BoundForReading">
+            <summary>
+            Gets a value indicating whether the render target is bound to the device for reading.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLRenderTarget2D.BoundForWriting">
+            <summary>
+            Gets a value indicating whether the render target is bound to the device for writing.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSamplerState">
             <summary>
@@ -1757,6 +1723,18 @@
             <param name="fragmentShader">The program's fragment shader.</param>
             <param name="programOwnsShaders">A value indicating whether the program owns the shader objects.</param>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgram.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgram.CreateUniformCollection">
+            <summary>
+            Creates the effect pass' collection of uniforms.
+            </summary>
+            <returns>The collection of uniforms that was created.</returns>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgram.OpenGLName">
             <summary>
             Gets the resource's OpenGL name.
@@ -1776,18 +1754,6 @@
             <summary>
             Gets the program's collection of uniforms.
             </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgram.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgram.CreateUniformCollection">
-            <summary>
-            Creates the effect pass' collection of uniforms.
-            </summary>
-            <returns>The collection of uniforms that was created.</returns>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLShaderProgramCollection">
             <summary>
@@ -1975,11 +1941,6 @@
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState">
             <summary>
             Represents a collection of states to apply to the OpenGL context.
-            </summary>
-        </member>
-        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState.OpenGLStateType">
-            <summary>
-            Represents the type of a <see cref="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState"/> object, which determines how it modifies the OpenGL context.
             </summary>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState.#cctor">
@@ -2227,6 +2188,11 @@
             ARB_direct_state_access or OpenGL 4.5.
             </summary>
         </member>
+        <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState.OpenGLStateType">
+            <summary>
+            Represents the type of a <see cref="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLState"/> object, which determines how it modifies the OpenGL context.
+            </summary>
+        </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLStateInteger">
             <summary>
             Represents a value associated with an OpenGL context that is cached by the OpenGL/SDL2 implementation
@@ -2402,6 +2368,21 @@
             </summary>
             <param name="stream">The stream to which to save the image data.</param>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D.BlitInternal(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D,TwistedLogik.Ultraviolet.Rectangle,TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D,TwistedLogik.Ultraviolet.Rectangle)">
+            <summary>
+            Blits the surface onto the specified destination surface.
+            </summary>
+            <param name="src">The source surface.</param>
+            <param name="srcRect">The area of this surface that will be copied to the destination surface.</param>
+            <param name="dst">The destination surface.</param>
+            <param name="dstRect">The area on the destination surface to which this surface will be copied.</param>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D.Width">
             <summary>
             Gets the surface's width in pixels.
@@ -2426,21 +2407,6 @@
             <summary>
             Gets a pointer to the native SDL surface that is encapsulated by this object.
             </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D.BlitInternal(TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D,TwistedLogik.Ultraviolet.Rectangle,TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2D,TwistedLogik.Ultraviolet.Rectangle)">
-            <summary>
-            Blits the surface onto the specified destination surface.
-            </summary>
-            <param name="src">The source surface.</param>
-            <param name="srcRect">The area of this surface that will be copied to the destination surface.</param>
-            <param name="dst">The destination surface.</param>
-            <param name="dstRect">The area on the destination surface to which this surface will be copied.</param>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLSurface2DProcessor">
             <summary>
@@ -2525,27 +2491,6 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.UnbindWrite">
             <inheritdoc/>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.OpenGLName">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.Width">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.Height">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.BoundForReading">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.BoundForWriting">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.ImmutableStorage">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.WillNotBeSampled">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.Dispose(System.Boolean)">
             <inheritdoc/>
         </member>
@@ -2593,6 +2538,27 @@
             <param name="stride">The number of elements in one row of data.</param>
             <param name="format">The format of the data being set.</param>
             <param name="origin">A <see cref="T:TwistedLogik.Ultraviolet.Graphics.SetDataOrigin"/> value specifying the origin of the texture data in <paramref name="data"/>.</param>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.OpenGLName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.Height">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.BoundForReading">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.BoundForWriting">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.ImmutableStorage">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2D.WillNotBeSampled">
+            <inheritdoc/>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLTexture2DProcessor">
             <summary>
@@ -2655,6 +2621,12 @@
             <param name="count">The number of elements from <paramref name="data"/> to set into the buffer.</param>
             <param name="options">A hint to the underlying driver indicating whether data will be overwritten by this operation.</param>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with this object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer.OpenGLName">
             <summary>
             Gets the resource's OpenGL name.
@@ -2664,12 +2636,6 @@
             <summary>
             Gets a value indicating whether the buffer's content has been lost.
             </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexBuffer.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with this object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexShader">
             <summary>
@@ -2690,16 +2656,16 @@
             <param name="uv">The Ultraviolet context.</param>
             <param name="source">The shader source.</param>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexShader.OpenGLName">
-            <summary>
-            Gets the OpenGL shader handle.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexShader.Dispose(System.Boolean)">
             <summary>
             Releases resources associated with this object.
             </summary>
             <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexShader.OpenGLName">
+            <summary>
+            Gets the OpenGL shader handle.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Graphics.OpenGLVertexShaderImporter">
             <summary>
@@ -2763,6 +2729,12 @@
             <param name="uv">The Ultraviolet context.</param>
             <returns><c>true</c> if cursors are supported; otherwise, <c>false</c>.</returns>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLCursor.Dispose(System.Boolean)">
+            <summary>
+            Releases resources associated with the object.
+            </summary>
+            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLCursor.Width">
             <inhertidoc/>
         </member>
@@ -2773,12 +2745,6 @@
             <summary>
             Gets a pointer to the native SDL2 cursor.
             </summary>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLCursor.Dispose(System.Boolean)">
-            <summary>
-            Releases resources associated with the object.
-            </summary>
-            <param name="disposing">true if the object is being disposed; false if the object is being finalized.</param>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.OpenGLCursorProcessor">
             <summary>
@@ -2828,6 +2794,11 @@
             Initializes a new instance of the OpenGLUltravioletConfiguration class.
             </summary>
         </member>
+        <member name="F:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletConfiguration.Default">
+            <summary>
+            The default configuration for the OpenGL/SDL2 implementation.
+            </summary>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletConfiguration.AudioSubsystemAssembly">
             <summary>
             Gets or sets the name of the assembly that implements the audio subsystem.
@@ -2862,11 +2833,6 @@
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletConfiguration.IsHardwareInputDisabled">
             <summary>
             Gets or sets a value indicating whether the context will disable hardware input by default.
-            </summary>
-        </member>
-        <member name="F:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletConfiguration.Default">
-            <summary>
-            The default configuration for the OpenGL/SDL2 implementation.
             </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletContext">
@@ -2957,9 +2923,6 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.SetRenderTarget(TwistedLogik.Ultraviolet.Graphics.RenderTarget2D)">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.SetRenderTargetToBackBuffer">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.GetRenderTarget">
             <inheritdoc/>
         </member>
@@ -3020,33 +2983,14 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.DrawIndexedPrimitives(TwistedLogik.Ultraviolet.Graphics.PrimitiveType,System.Int32,System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.DrawInstancedPrimitives(TwistedLogik.Ultraviolet.Graphics.PrimitiveType,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.UpdateFrameRate">
             <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.FrameRate">
-            <inheritdoc/>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.Capabilities">
-            <inheritdoc/>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.Updating">
-            <summary>
-            Occurs when the subsystem is updating its state.
-            </summary>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.ReleaseReferences(TwistedLogik.Ultraviolet.Graphics.Texture2D)">
             <summary>
             Releases any references to the specified texture.
             </summary>
             <param name="texture">The texture to which to release references.</param>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.OpenGLContext">
-            <summary>
-            Gets the OpenGL context.
-            </summary>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.Dispose(System.Boolean)">
             <summary>
@@ -3103,9 +3047,20 @@
             <param name="width">The width of the region to convert.</param>
             <param name="height">The height of the region to convert.</param>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.SetRenderTargetInternal(TwistedLogik.Ultraviolet.Graphics.RenderTarget2D)">
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.FrameRate">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.Capabilities">
+            <inheritdoc/>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.Updating">
             <summary>
-            Sets the current render target.
+            Occurs when the subsystem is updating its state.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphics.OpenGLContext">
+            <summary>
+            Gets the OpenGL context.
             </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletGraphicsFactoryInitializer">
@@ -3135,6 +3090,15 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.Update(TwistedLogik.Ultraviolet.UltravioletTime)">
             <inheritdoc/>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.OnUpdating(TwistedLogik.Ultraviolet.UltravioletTime)">
+            <summary>
+            Raises the Updating event.
+            </summary>
+            <param name="time">Time elapsed since the last call to Update.</param>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.Cursor">
             <inheritdoc/>
         </member>
@@ -3149,15 +3113,6 @@
         </member>
         <member name="E:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.Updating">
             <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.Dispose(System.Boolean)">
-            <inheritdoc/>
-        </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletPlatform.OnUpdating(TwistedLogik.Ultraviolet.UltravioletTime)">
-            <summary>
-            Raises the Updating event.
-            </summary>
-            <param name="time">Time elapsed since the last call to Update.</param>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletClipboardInfo">
             <summary>
@@ -3271,6 +3226,14 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplay.DipsToInches(TwistedLogik.Ultraviolet.Vector2)">
             <inheritdoc/>
         </member>
+        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplay.CreateDisplayModeFromSDL(System.Int32,System.Int32)">
+            <summary>
+            Creates an Ultraviolet DisplayMode object from the specified SDL2 display mode.
+            </summary>
+            <param name="displayIndex">The display index.</param>
+            <param name="modeIndex">The mode index.</param>
+            <returns>The Ultraviolet DisplayMode object that was created.</returns>
+        </member>
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplay.Index">
             inheritdoc/>
         </member>
@@ -3292,14 +3255,6 @@
         <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplay.DensityBucket">
             <inheritdoc/>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplay.CreateDisplayModeFromSDL(System.Int32,System.Int32)">
-            <summary>
-            Creates an Ultraviolet DisplayMode object from the specified SDL2 display mode.
-            </summary>
-            <param name="displayIndex">The display index.</param>
-            <param name="modeIndex">The mode index.</param>
-            <returns>The Ultraviolet DisplayMode object that was created.</returns>
-        </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplayInfo">
             <summary>
             Represents the OpenGL/SDL2 implementation of the IUltravioletDisplayInfo interface.
@@ -3310,9 +3265,6 @@
             Initializes a new instance of the OpenGLUltravioletDisplayInfo class.
             </summary>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplayInfo.PrimaryDisplay">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplayInfo.GetEnumerator">
             <inheritdoc/>
         </member>
@@ -3320,6 +3272,9 @@
             <inheritdoc/>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplayInfo.System#Collections#Generic#IEnumerable{TwistedLogik#Ultraviolet#Platform#IUltravioletDisplay}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletDisplayInfo.PrimaryDisplay">
             <inheritdoc/>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow">
@@ -3398,128 +3353,11 @@
             </summary>
             <returns>The window's current maximization/minimization state.</returns>
         </member>
-        <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.ChangeCompositor(TwistedLogik.Ultraviolet.Graphics.Compositor)">
-            <inheritdoc/>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Draw(TwistedLogik.Ultraviolet.UltravioletTime)">
             <summary>
             Draws the window.
             </summary>
             <param name="time">Time elapsed since the last call to Draw.</param>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.ID">
-            <summary>
-            Gets the window's identifier within its windowing system.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Caption">
-            <summary>
-            Gets or sets the window's caption.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Position">
-            <summary>
-            Gets or sets the window's position.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.WindowedPosition">
-            <summary>
-            Gets or sets the position to which the window will be restored upon entering non-maximized windowed mode.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.ClientSize">
-            <summary>
-            Gets the window's client size.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.WindowedClientSize">
-            <summary>
-            Gets or sets the client size to which the window will be restored upon entering non-maximized windowed mode.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.MaximumClientSize">
-            <summary>
-            Gets the window's maximum client size.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.SynchronizeWithVerticalRetrace">
-            <summary>
-            Gets or sets a value indicating whether this window's rendering is synchronized
-            with the vertical retrace (i.e, whether vsync is enabled).
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Active">
-            <summary>
-            Gets a value indicating whether the window is currently active.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Visible">
-            <summary>
-            Gets or sets a value indicating whether this window is visible.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Resizable">
-            <summary>
-            Gets a value indicating whether this window is resizable.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Borderless">
-            <summary>
-            Gets a value indicating whether this window is borderless.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Native">
-            <summary>
-            Gets a value indicating whether this window was created from a native window.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Icon">
-            <summary>
-            Gets or sets the window's icon.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Compositor">
-            <inheritdoc/>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Shown">
-            <summary>
-            Occurs when the window is shown.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Hidden">
-            <summary>
-            Occurs when the window is hidden.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Minimized">
-            <summary>
-            Occurs when the window is minimized.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Maximized">
-            <summary>
-            Occurs when the window is maximized.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Restored">
-            <summary>
-            Occurs when the window is restored.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Drawing">
-            <summary>
-            Occurs when the window is rendered.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.DrawingUI">
-            <summary>
-            Occurs when the window is drawing its UI layer.
-            </summary>
-        </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.IsCurrentWindow">
-            <summary>
-            Gets or sets a value indicating whether this is the current window.
-            </summary>
         </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.LoadDefaultWindowIcon(TwistedLogik.Ultraviolet.UltravioletContext)">
             <summary>
@@ -3599,6 +3437,112 @@
             Updates the window's windowed client size, if it is currently in the correct mode and state.
             </summary>
             <param name="size">The new windowed client size.</param>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.ID">
+            <summary>
+            Gets the window's identifier within its windowing system.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Caption">
+            <summary>
+            Gets or sets the window's caption.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Position">
+            <summary>
+            Gets or sets the window's position.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.WindowedPosition">
+            <summary>
+            Gets or sets the position to which the window will be restored upon entering non-maximized windowed mode.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.ClientSize">
+            <summary>
+            Gets the window's client size.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.WindowedClientSize">
+            <summary>
+            Gets or sets the client size to which the window will be restored upon entering non-maximized windowed mode.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.MaximumClientSize">
+            <summary>
+            Gets the window's maximum client size.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.SynchronizeWithVerticalRetrace">
+            <summary>
+            Gets or sets a value indicating whether this window's rendering is synchronized
+            with the vertical retrace (i.e, whether vsync is enabled).
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Active">
+            <summary>
+            Gets a value indicating whether the window is currently active.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Visible">
+            <summary>
+            Gets or sets a value indicating whether this window is visible.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Resizable">
+            <summary>
+            Gets a value indicating whether this window is resizable.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Borderless">
+            <summary>
+            Gets a value indicating whether this window is borderless.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Native">
+            <summary>
+            Gets a value indicating whether this window was created from a native window.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Icon">
+            <summary>
+            Gets or sets the window's icon.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Shown">
+            <summary>
+            Occurs when the window is shown.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Hidden">
+            <summary>
+            Occurs when the window is hidden.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Minimized">
+            <summary>
+            Occurs when the window is minimized.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Maximized">
+            <summary>
+            Occurs when the window is maximized.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Restored">
+            <summary>
+            Occurs when the window is restored.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Drawing">
+            <summary>
+            Occurs when the window is rendered.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.DrawingUI">
+            <summary>
+            Occurs when the window is drawing its UI layer.
+            </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindow.Win32Native">
             <summary>
@@ -3742,41 +3686,6 @@
             </summary>
             <returns>The collection's enumerator.</returns>
         </member>
-        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.Ultraviolet">
-            <summary>
-            Gets the Ultraviolet context.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.WindowCreated">
-            <summary>
-            Occurs after a window has been created.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.WindowDestroyed">
-            <summary>
-            Occurs when a window is about to be destroyed.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.PrimaryWindowChanging">
-            <summary>
-            Occurs when the primary window is about to change.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.PrimaryWindowChanged">
-            <summary>
-            Occurs when the primary window changes.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.CurrentWindowChanged">
-            <summary>
-            Occurs when the current window is about to change.
-            </summary>
-        </member>
-        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.CurrentWindowChanging">
-            <summary>
-            Occurs when the current window changes.
-            </summary>
-        </member>
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.InitializePrimaryWindow(TwistedLogik.Ultraviolet.OpenGL.OpenGLUltravioletConfiguration)">
             <summary>
             Initializes the context's primary window.
@@ -3818,6 +3727,41 @@
         <member name="M:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.DesignateCurrentOpenGLWindow(TwistedLogik.Ultraviolet.Platform.IUltravioletWindow,System.IntPtr)">
             <summary>
             Binds the OpenGL context to the specified window.
+            </summary>
+        </member>
+        <member name="P:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.Ultraviolet">
+            <summary>
+            Gets the Ultraviolet context.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.WindowCreated">
+            <summary>
+            Occurs after a window has been created.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.WindowDestroyed">
+            <summary>
+            Occurs when a window is about to be destroyed.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.PrimaryWindowChanging">
+            <summary>
+            Occurs when the primary window is about to change.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.PrimaryWindowChanged">
+            <summary>
+            Occurs when the primary window changes.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.CurrentWindowChanged">
+            <summary>
+            Occurs when the current window is about to change.
+            </summary>
+        </member>
+        <member name="E:TwistedLogik.Ultraviolet.OpenGL.Platform.OpenGLUltravioletWindowInfo.CurrentWindowChanging">
+            <summary>
+            Occurs when the current window changes.
             </summary>
         </member>
         <member name="T:TwistedLogik.Ultraviolet.OpenGL.ResourceUtil">

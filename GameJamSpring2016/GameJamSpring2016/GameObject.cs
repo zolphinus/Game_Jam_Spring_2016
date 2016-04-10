@@ -26,7 +26,7 @@ namespace GameJamSpring2016
         private SpriteAnimationController[] _animations;
         private Body _body2D;
         private int _animationIndex;
-        private ushort _categoryBit = 1;
+        private static ushort _categoryBit = 65535;
         private ushort _personalBit;
 
         public Vector2 position
@@ -59,9 +59,13 @@ namespace GameJamSpring2016
             set { _animationIndex = value; }
         }
 
-        public ushort categoryBit
+        public static ushort categoryBit
         {
-            get { return _categoryBit++; }
+            get 
+            {
+                _categoryBit++;
+                return (ushort)(1 << _categoryBit); 
+            }
             set { _categoryBit = value; }
         }
 
@@ -100,7 +104,7 @@ namespace GameJamSpring2016
             PolygonDef shapeDef = new PolygonDef();
             shapeDef.SetAsBox((float)animations[animationIndex].Width / Game.pixelsToMeters, (float)animations[animationIndex].Height / Game.pixelsToMeters);
             shapeDef.Density = 1F;
-            shapeDef.Filter.CategoryBits = (ushort)(~(int)_personalBit);
+            shapeDef.Filter.CategoryBits = 0;
             shapeDef.Filter.MaskBits = 0;
 
             body2D.CreateFixture(shapeDef);
