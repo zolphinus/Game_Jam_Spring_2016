@@ -143,7 +143,6 @@ C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\Gam
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\TwistedLogik.Nucleus.xml
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\TwistedLogik.Ultraviolet.xml
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\TwistedLogik.Ultraviolet.OpenGL.xml
-C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\obj\x86\Debug\GameJamSpring2016.csprojResolveAssemblyReference.cache
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\Content\Sprites\Textures\Brown_Kernel.png
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\Content\Sprites\Textures\Brown_Kernel.xml
 C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\Content\Sprites\Brown_Kernel.sprite
@@ -199,3 +198,4 @@ C:\Users\Conor\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSp
 C:\Users\Conor\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\TwistedLogik.Ultraviolet.xml
 C:\Users\Conor\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\bin\x86\Debug\TwistedLogik.Ultraviolet.OpenGL.xml
 C:\Users\Conor\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\obj\x86\Debug\GameJamSpring2016.csprojResolveAssemblyReference.cache
+C:\Users\Macbad 2012\Documents\GitHub\Game_Jam_Spring_2016\GameJamSpring2016\GameJamSpring2016\obj\x86\Debug\GameJamSpring2016.csprojResolveAssemblyReference.cache

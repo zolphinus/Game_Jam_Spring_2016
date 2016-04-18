@@ -94,7 +94,7 @@ namespace GameJamSpring2016
         /// Creates a box2D body based on the GameObject's current sprite.
         /// </summary>
         /// <param name="world">The physics world to create the body in.</param>
-        public void SetupBodyFromSprite(World world)
+        public void SetupBodyFromSprite(World world, bool isSensor)
         {
             BodyDef bDef = new BodyDef();
             bDef.Position = position.ToWorldVector();
@@ -102,10 +102,12 @@ namespace GameJamSpring2016
             body2D = world.CreateBody(bDef);
 
             PolygonDef shapeDef = new PolygonDef();
+            FixtureDef fixDef = new FixtureDef();
             shapeDef.SetAsBox((float)animations[animationIndex].Width / Game.pixelsToMeters, (float)animations[animationIndex].Height / Game.pixelsToMeters);
             shapeDef.Density = 1F;
-            shapeDef.Filter.CategoryBits = 0;
-            shapeDef.Filter.MaskBits = 0;
+            shapeDef.Filter.CategoryBits = this.personalBit;
+            shapeDef.Filter.MaskBits = (ushort)(~(int)_personalBit);
+            shapeDef.IsSensor = isSensor;
 
             body2D.CreateFixture(shapeDef);
             body2D.SetMassFromShapes();

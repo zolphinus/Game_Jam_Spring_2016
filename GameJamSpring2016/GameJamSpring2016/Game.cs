@@ -126,6 +126,10 @@ namespace GameJamSpring2016
 
             drawnObjects = new List<GameObject>();
 
+            //Set the custom contact listener
+            GameContactListener GameContactListener = new GameContactListener();
+            physicsWorld.SetContactListener(GameContactListener);
+
             base.OnInitialized();
         }
 
@@ -150,7 +154,7 @@ namespace GameJamSpring2016
             this.playerObj.animationIndex = 0;
             this.playerObj.animations = new SpriteAnimationController[] { sprite["Green_Corn"].Controller };
             this.playerObj.personalBit = GameObject.categoryBit;
-            //this.playerObj.SetupBodyFromSprite(physicsWorld);
+            this.playerObj.SetupBodyFromSprite(physicsWorld, false);
             this.playerObj.playerWeapon = new Weapon();
             this.playerObj.playerWeapon.pattern = new BasicFiringPattern();
             this.isHost = true; //hard setting this for now
@@ -285,7 +289,7 @@ namespace GameJamSpring2016
                 firedBullet.sprite = content.Load<Sprite>(GlobalSpriteID.Brown_Kernel);
                 firedBullet.animationIndex = 0;
                 firedBullet.animations = new SpriteAnimationController[] { firedBullet.sprite["Brown_Kernel"].Controller };
-                firedBullet.SetupBodyFromSprite(physicsWorld);
+                firedBullet.SetupBodyFromSprite(physicsWorld, true);
                 firedBullet.body2D.ApplyImpulse(firedBullet.speed * firedBullet.fireDirection.ToWorldVector()*(1F / firedBullet.fireDirection.ToWorldVector().Normalize()), firedBullet.position.ToWorldVector());
 
                 //bool BullShit = (firedBullet.body2D.GetFixtureList().Filter.CategoryBits & playerObj.body2D.GetFixtureList().Filter.MaskBits) != 0
@@ -304,7 +308,7 @@ namespace GameJamSpring2016
             }
 
             physicsWorld.Step(1F / 60F, 10, 10);
-            //playerObj.position = playerObj.body2D.GetPosition().ToScreenVector();
+            playerObj.position = playerObj.body2D.GetPosition().ToScreenVector();
 
             base.OnUpdating(time);
         }
@@ -340,7 +344,7 @@ namespace GameJamSpring2016
 
             var size = Ultraviolet.GetPlatform().Windows.GetCurrent().ClientSize;
             var settings = new TextLayoutSettings(spriteFont, size.Width, size.Height, TextFlags.AlignCenter | TextFlags.AlignMiddle);
-            textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, TwistedLogik.Ultraviolet.Color.White, settings);
+            //textRenderer.Draw(spriteBatch, "Welcome to the |c:FFFF00C0|Ultraviolet Framework|c|!", Vector2.Zero, TwistedLogik.Ultraviolet.Color.White, settings);
 
             //physicsTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
             groundTestObject.DrawObject(spriteBatch, true, textRenderer, settings);
@@ -426,6 +430,29 @@ namespace GameJamSpring2016
             private set
             {
                 _windowWidth = value;
+            }
+        }
+
+        public class GameContactListener : ContactListener
+        {
+            public void BeginContact(Contact c)
+            {
+                Console.WriteLine("Thing happened");
+            }
+
+            public void EndContact(Contact c)
+            {
+
+            }
+
+            public void PreSolve(Contact c, Manifold m)
+            {
+
+            }
+
+            public void PostSolve(Contact c, ContactImpulse ci)
+            {
+
             }
         }
 
